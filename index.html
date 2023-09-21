@@ -1,8 +1,6 @@
-<!doctype html>
-<html class="no-js" lang="en">
-<head>
-  <meta charset="utf-8">
-  <script>
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<script>
 const urlInput = document.getElementById('url');
 const generateLinksButton = document.querySelector('button[type="submiturl"]');
 const linksContainer = document.getElementById('links');
@@ -10,7 +8,6 @@ generateLinksButton.addEventListener('click', (event) => {
 event.preventDefault();
 const url = urlInput.value;
 if (!url) return;
-
   const links = [
 	`https://search.google.com/search-console/r/3d-models?resource_id=${url}`,
 	`https://search.google.com/search-console/amp?resource_id=${url}`,
@@ -59,57 +56,41 @@ if (!url) return;
 	`https://search.google.com/search-console/r/unknown-type?resource_id=${url}`,
 	`https://search.google.com/search-console/r/videos?resource_id=${url}`
   ];
-
   linksContainer.innerHTML = '';
   links.forEach((link, index) => {
   const linkElement = document.createElement('a');
   linkElement.href = link;
   linkElement.target = '_blank';
   switch (index) {
+// Dunno how to add proper link text...
 //    case 0:
   //    linkElement.innerText = 'Products Listings';
     //  break;
-//    case 1:
-  //    linkElement.innerText = 'Merchant Listings';
-    //  break;
-//    case 2:
-  //    linkElement.innerText = 'Shopping Tab Listings';
-    //  break;
     default:
-      linkElement.innerText = `Link ${index + 1}: Click here to visit ${link}`;
+      linkElement.innerText = `${index + 1}: ${link}`;
   }
   linksContainer.appendChild(linkElement);
   linksContainer.appendChild(document.createElement('br'));
   });
-});
-</script>
+});</script>
   <title>Google Search Console Uncovered</title>
-  <meta name="description" content="">
+  <meta name="description" content="Google Search Console Uncovered">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
+  <meta property="og:title" content="Google Search Console Uncovered">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/">
   <meta property="og:image" content="">
-
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
-
+<!--  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
-
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#fafafa">
+  <link rel="manifest" href="site.webmanifest"> -->
+<meta name="theme-color" content="#fafafa">
 </head>
-
 <body>
-
-  <!-- Add your site or application content here -->
   <form>
-  <label for="url">Enter an URL or Domain:</label>
+  <label for="url">Enter an URL or Domain (sc-domain:):</label>
   <input type="text" role="textbox" id="url" name="url">
-  <button type="submiturl">Generate Links</button>
+  <button type="submiturl">Generate Search Console Links</button>
 </form>
 <div id="links"></div>
 </body></html>
