@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <script>
+document.addEventListener('DOMContentLoaded', () => {
 const urlInput = document.getElementById('url');
 const generateLinksButton = document.querySelector('button[type="submit"]');
 const linksContainer = document.getElementById('links');
@@ -72,6 +73,7 @@ if (!url) return;
   linksContainer.appendChild(linkElement);
   linksContainer.appendChild(document.createElement('br'));
   });
+});
 });</script>
   <title>Google Search Console Uncovered</title>
   <meta name="description" content="Google Search Console Uncovered">
