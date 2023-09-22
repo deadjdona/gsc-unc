@@ -1,86 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-const urlInput = document.getElementById('url');
-const generateLinksButton = document.querySelector('button[type="submit"]');
-const linksContainer = document.getElementById('links');
-generateLinksButton.addEventListener('click', (event) => {
-event.preventDefault();
-const url = urlInput.value;
-if (!url) return;
-  const links = [
-	`https://search.google.com/search-console/r/3d-models?resource_id=${url}`,
-	`https://search.google.com/search-console/amp?resource_id=${url}`,
-	`https://search.google.com/search-console/amp-articles?resource_id=${url}`,
-	`https://search.google.com/search-console/r/breadcrumbs?resource_id=${url}`,
-	`https://search.google.com/search-console/r/auto-user-review?resource_id=${url}`,
-	`https://search.google.com/search-console/r/carousels?resource_id=${url}`,
-	`https://search.google.com/search-console/r/courses?resource_id=${url}`,
-	`https://search.google.com/search-console/r/critic-reviews?resource_id=${url}`,
-	`https://search.google.com/search-console/r/datasets?resource_id=${url}`,
-	`https://search.google.com/search-console/r/employer-ratings?resource_id=${url}`,
-	`https://search.google.com/search-console/r/estimated-salaries?resource_id=${url}`,
-	`https://search.google.com/search-console/r/events?resource_id=${url}`,
-	`https://search.google.com/search-console/r/fact-check?resource_id=${url}`,
-	`https://search.google.com/search-console/r/faq?resource_id=${url}`,
-	`https://search.google.com/search-console/r/financial-wellness?resource_id=${url}`,
-	`https://search.google.com/search-console/r/guided-recipes?resource_id=${url}`,
-	`https://search.google.com/search-console/r/how-to?resource_id=${url}`,
-	`https://search.google.com/search-console/https?resource_id=${url}`,
-	`https://search.google.com/search-console/r/image-licenses?resource_id=${url}`,
-	`https://search.google.com/search-console/r/job-trainings?resource_id=${url}`,
-	`https://search.google.com/search-console/r/jobs?resource_id=${url}`,
-	`https://search.google.com/search-console/r/learning-video?resource_id=${url}`,
-	`https://search.google.com/search-console/r/lenslets?resource_id=${url}`,
-	`https://search.google.com/search-console/r/lists?resource_id=${url}`,
-	`https://search.google.com/search-console/r/live-coverage-articles?resource_id=${url}`,
-	`https://search.google.com/search-console/r/local-business?resource_id=${url}`,
-	`https://search.google.com/search-console/r/logos?resource_id=${url}`,
-	`https://search.google.com/search-console/r/math-solvers?resource_id=${url}`,
-	`https://search.google.com/search-console/r/medical-conditions?resource_id=${url}`,
-	`https://search.google.com/search-console/r/merchant-listings?resource_id=${url}`,
-	`https://search.google.com/search-console/r/movies?resource_id=${url}`,
-	`https://search.google.com/search-console/r/paywalled-content?resource_id=${url}`,
-	`https://search.google.com/search-console/r/person?resource_id=${url}`,
-	`https://search.google.com/search-console/r/practice-problems?resource_id=${url}`,
-	`https://search.google.com/search-console/r/product?resource_id=${url}`,
-	`https://search.google.com/search-console/r/q-and-a?resource_id=${url}`,
-	`https://search.google.com/search-console/r/recipes?resource_id=${url}`,
-	`https://search.google.com/search-console/r/review-snippet?resource_id=${url}`,
-	`https://search.google.com/search-console/r/sitelinks-searchbox?resource_id=${url}`,
-	`https://search.google.com/search-console/shopping-tab-listings?resource_id=${url}`,
-	`https://search.google.com/search-console/r/software-apps?resource_id=${url}`,
-	`https://search.google.com/search-console/r/special-announcements?resource_id=${url}`,
-	`https://search.google.com/search-console/r/sports-videos?resource_id=${url}`,
-	`https://search.google.com/search-console/r/subscribed-content?resource_id=${url}`,
-	`https://search.google.com/search-console/r/unknown-type?resource_id=${url}`,
-	`https://search.google.com/search-console/r/videos?resource_id=${url}`
-  ];
-  linksContainer.innerHTML = '';
-  links.forEach((link, index) => {
-  const linkElement = document.createElement('a');
-  linkElement.href = link;
-  linkElement.target = '_blank';
-  switch (index) {
-// Dunno how to add proper link text...
-//    case 0:
-  //    linkElement.innerText = 'Products Listings';
-    //  break;
-    default:
-      linkElement.innerText = `${index + 1}: ${link}`;
-  }
-  linksContainer.appendChild(linkElement);
-  linksContainer.appendChild(document.createElement('br'));
-  });
-});
-});</script>
+<script> // yeah
+document.addEventListener("DOMContentLoaded",function(){var e=document.getElementById("url"),f=document.querySelector('button[type="submit"]'),c=document.getElementById("links");f.addEventListener("click",function(a){a.preventDefault();if(a=e.value)a=["https://search.google.com/search-console/r/3d-models?resource_id="+a,"https://search.google.com/search-console/amp?resource_id="+a,"https://search.google.com/search-console/amp-articles?resource_id="+a,"https://search.google.com/search-console/r/breadcrumbs?resource_id="+
+a,"https://search.google.com/search-console/r/auto-user-review?resource_id="+a,"https://search.google.com/search-console/r/carousels?resource_id="+a,"https://search.google.com/search-console/r/courses?resource_id="+a,"https://search.google.com/search-console/r/critic-reviews?resource_id="+a,"https://search.google.com/search-console/r/datasets?resource_id="+a,"https://search.google.com/search-console/r/employer-ratings?resource_id="+a,"https://search.google.com/search-console/r/estimated-salaries?resource_id="+
+a,"https://search.google.com/search-console/r/events?resource_id="+a,"https://search.google.com/search-console/r/fact-check?resource_id="+a,"https://search.google.com/search-console/r/faq?resource_id="+a,"https://search.google.com/search-console/r/financial-wellness?resource_id="+a,"https://search.google.com/search-console/r/guided-recipes?resource_id="+a,"https://search.google.com/search-console/r/how-to?resource_id="+a,"https://search.google.com/search-console/https?resource_id="+a,"https://search.google.com/search-console/r/image-licenses?resource_id="+
+a,"https://search.google.com/search-console/r/job-trainings?resource_id="+a,"https://search.google.com/search-console/r/jobs?resource_id="+a,"https://search.google.com/search-console/r/learning-video?resource_id="+a,"https://search.google.com/search-console/r/lenslets?resource_id="+a,"https://search.google.com/search-console/r/lists?resource_id="+a,"https://search.google.com/search-console/r/live-coverage-articles?resource_id="+a,"https://search.google.com/search-console/r/local-business?resource_id="+
+a,"https://search.google.com/search-console/r/logos?resource_id="+a,"https://search.google.com/search-console/r/math-solvers?resource_id="+a,"https://search.google.com/search-console/r/medical-conditions?resource_id="+a,"https://search.google.com/search-console/r/merchant-listings?resource_id="+a,"https://search.google.com/search-console/r/movies?resource_id="+a,"https://search.google.com/search-console/r/paywalled-content?resource_id="+a,"https://search.google.com/search-console/r/person?resource_id="+
+a,"https://search.google.com/search-console/r/practice-problems?resource_id="+a,"https://search.google.com/search-console/r/product?resource_id="+a,"https://search.google.com/search-console/r/q-and-a?resource_id="+a,"https://search.google.com/search-console/r/recipes?resource_id="+a,"https://search.google.com/search-console/r/review-snippet?resource_id="+a,"https://search.google.com/search-console/r/sitelinks-searchbox?resource_id="+a,"https://search.google.com/search-console/shopping-tab-listings?resource_id="+
+a,"https://search.google.com/search-console/r/software-apps?resource_id="+a,"https://search.google.com/search-console/r/special-announcements?resource_id="+a,"https://search.google.com/search-console/r/sports-videos?resource_id="+a,"https://search.google.com/search-console/r/subscribed-content?resource_id="+a,"https://search.google.com/search-console/r/unknown-type?resource_id="+a,"https://search.google.com/search-console/r/videos?resource_id="+a],c.innerHTML="",a.forEach(function(d,g){var b=document.createElement("a");
+b.href=d;b.target="_blank";b.innerText=g+1+": "+d;c.appendChild(b);c.appendChild(document.createElement("br"))})})});
+</script>
   <title>Google Search Console Uncovered</title>
-  <meta name="description" content="Google Search Console Uncovered">
+  <meta name="description" content="Google Search Console Internals Uncovered">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:title" content="Google Search Console Uncovered">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="/">
+  <meta property="og:url" content="https://gsc-enhancements.site/">
   <meta property="og:image" content="">
 <!--  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="stylesheet" href="css/normalize.css">
