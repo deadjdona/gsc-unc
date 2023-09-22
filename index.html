@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="utf-8">
 <script>
 const urlInput = document.getElementById('url');
-const generateLinksButton = document.querySelector('button[type="submiturl"]');
+const generateLinksButton = document.querySelector('button[type="submit"]');
 const linksContainer = document.getElementById('links');
 generateLinksButton.addEventListener('click', (event) => {
 event.preventDefault();
@@ -90,7 +90,7 @@ if (!url) return;
   <form>
   <label for="url">Enter an URL or Domain (sc-domain:):</label>
   <input type="text" role="textbox" id="url" name="url">
-  <button type="submiturl">Generate Search Console Links</button>
+  <button type="submit">Generate Search Console Links</button>
 </form>
 <div id="links"></div>
 </body></html>
