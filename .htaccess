@@ -8,6 +8,4 @@
 # https://httpd.apache.org/docs/current/howto/htaccess.html
 
 
-<IfModule mod_headers.c>
-     Header add Content-Security-Policy "Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; media-src 'self'; prefetch-src *; form-action 'self'; upgrade-insecure-requests; block-all-mixed-content; disown-opener; manifest-src 'self'"
-</IfModule>
+Header add Content-Security-Policy "Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; media-src 'self'; prefetch-src *; form-action 'self'; upgrade-insecure-requests; block-all-mixed-content; disown-opener; manifest-src 'self'"
