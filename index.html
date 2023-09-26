@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
-<meta HTTP-EQUIV="Content-Security-Policy: default-src 'self'; script-src 'self' data: 'unsafe-inline'; style-src 'self' data: 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; media-src 'self'; object-src 'self'; prefetch-src * 'self'; upgrade-insecure-requests; block-all-mixed-content; disown-opener; manifest-src 'self'">
 <script> // yeah
 document.addEventListener("DOMContentLoaded",function(){var e=document.getElementById("url"),f=document.querySelector('button[type="submit"]'),c=document.getElementById("links");f.addEventListener("click",function(a){a.preventDefault();if(a=e.value)a=["https://search.google.com/search-console/r/3d-models?resource_id="+a,"https://search.google.com/search-console/amp?resource_id="+a,"https://search.google.com/search-console/amp-articles?resource_id="+a,"https://search.google.com/search-console/r/breadcrumbs?resource_id="+
 a,"https://search.google.com/search-console/r/auto-user-review?resource_id="+a,"https://search.google.com/search-console/r/carousels?resource_id="+a,"https://search.google.com/search-console/r/courses?resource_id="+a,"https://search.google.com/search-console/r/critic-reviews?resource_id="+a,"https://search.google.com/search-console/r/datasets?resource_id="+a,"https://search.google.com/search-console/r/employer-ratings?resource_id="+a,"https://search.google.com/search-console/r/estimated-salaries?resource_id="+
@@ -41,7 +40,7 @@ b.href=d;b.target="_blank";b.innerText=g+1+": "+d;c.appendChild(b);c.appendChild
 <body>
   <form>
   <label for="url">Enter an URL or Domain (sc-domain:):</label>
-  <input type="text" role="textbox" id="url" name="url">
+  <input type="text" id="url" name="url">
   <button type="submit">Generate Search Console Links</button>
 </form>
 <div id="links"></div>
