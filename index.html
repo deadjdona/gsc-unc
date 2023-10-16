@@ -1,189 +1,982 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8">
-<meta HTTP-EQUIV="Content-Security-Policy: default-src 'self'; script-src 'self' data: 'unsafe-inline'; style-src 'self' data: 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; media-src 'self'; object-src 'self'; prefetch-src * 'self'; upgrade-insecure-requests; block-all-mixed-content; disown-opener; manifest-src 'self'">
-<script> // yeah
-document.addEventListener("DOMContentLoaded",function(){var e=document.getElementById("url"),f=document.querySelector('button[type="submit"]'),c=document.getElementById("links");f.addEventListener("click",function(a){a.preventDefault();if(a=e.value)a=["https://search.google.com/search-console/r/3d-models?resource_id="+a,"https://search.google.com/search-console/amp?resource_id="+a,"https://search.google.com/search-console/amp-articles?resource_id="+a,"https://search.google.com/search-console/r/breadcrumbs?resource_id="+
-a,"https://search.google.com/search-console/r/auto-user-review?resource_id="+a,"https://search.google.com/search-console/r/carousels?resource_id="+a,"https://search.google.com/search-console/r/courses?resource_id="+a,"https://search.google.com/search-console/r/critic-reviews?resource_id="+a,"https://search.google.com/search-console/r/datasets?resource_id="+a,"https://search.google.com/search-console/r/employer-ratings?resource_id="+a,"https://search.google.com/search-console/r/estimated-salaries?resource_id="+
-a,"https://search.google.com/search-console/r/events?resource_id="+a,"https://search.google.com/search-console/r/fact-check?resource_id="+a,"https://search.google.com/search-console/r/faq?resource_id="+a,"https://search.google.com/search-console/r/financial-wellness?resource_id="+a,"https://search.google.com/search-console/r/guided-recipes?resource_id="+a,"https://search.google.com/search-console/r/how-to?resource_id="+a,"https://search.google.com/search-console/https?resource_id="+a,"https://search.google.com/search-console/r/image-licenses?resource_id="+
-a,"https://search.google.com/search-console/r/job-trainings?resource_id="+a,"https://search.google.com/search-console/r/jobs?resource_id="+a,"https://search.google.com/search-console/r/learning-video?resource_id="+a,"https://search.google.com/search-console/r/lenslets?resource_id="+a,"https://search.google.com/search-console/r/lists?resource_id="+a,"https://search.google.com/search-console/r/live-coverage-articles?resource_id="+a,"https://search.google.com/search-console/r/local-business?resource_id="+
-a,"https://search.google.com/search-console/r/logos?resource_id="+a,"https://search.google.com/search-console/r/math-solvers?resource_id="+a,"https://search.google.com/search-console/r/medical-conditions?resource_id="+a,"https://search.google.com/search-console/r/merchant-listings?resource_id="+a,"https://search.google.com/search-console/r/movies?resource_id="+a,"https://search.google.com/search-console/r/paywalled-content?resource_id="+a,"https://search.google.com/search-console/r/person?resource_id="+
-a,"https://search.google.com/search-console/r/practice-problems?resource_id="+a,"https://search.google.com/search-console/r/product?resource_id="+a,"https://search.google.com/search-console/r/q-and-a?resource_id="+a,"https://search.google.com/search-console/r/recipes?resource_id="+a,"https://search.google.com/search-console/r/review-snippet?resource_id="+a,"https://search.google.com/search-console/r/sitelinks-searchbox?resource_id="+a,"https://search.google.com/search-console/shopping-tab-listings?resource_id="+
-a,"https://search.google.com/search-console/r/software-apps?resource_id="+a,"https://search.google.com/search-console/r/special-announcements?resource_id="+a,"https://search.google.com/search-console/r/sports-videos?resource_id="+a,"https://search.google.com/search-console/r/subscribed-content?resource_id="+a,"https://search.google.com/search-console/r/unknown-type?resource_id="+a,"https://search.google.com/search-console/r/videos?resource_id="+a],c.innerHTML="",a.forEach(function(d,g){var b=document.createElement("a");
-b.href=d;b.target="_blank";b.innerText=g+1+": "+d;c.appendChild(b);c.appendChild(document.createElement("br"))})})});
+<html lang="en">
+<head>
+<script>
+ function isValidInput(b){return/^(https?:\/\/.+\..+|sc-domain:.+\..+)$/.test(b)}function submitForm(){var b=document.getElementById("url").value;isValidInput(b)&&Array.from(document.getElementsByTagName("a")).forEach(function(c){var a=c.href;c.classList.contains("exclude")?a=a.substring(0,a.lastIndexOf("=")+1)+b:(a=c.href.split("=")[0]+"="+b,c.textContent=a);c.href=a})};
 </script>
   <title>Google Search Console Uncovered</title>
-  <meta name="description" content="Google Search Console Internals Uncovered">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Google Search Console Uncovered">
-  <meta property="og:description" content="Google Search Console Internals Uncovered">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://gsc-enhancements.site/">
-  <meta property="og:image" content="">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="canonical" href="https://gsc-enhancements.site/">
-  <!-- <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="manifest" href="site.webmanifest"> -->
-<meta name="theme-color" content="#fafafa">
-<script type="application/ld+json">{
-"@context": "https://schema.org",
-"@type": "WebSite",
-"url": "https://gsc-enhancements.site/",
-"name": "GSC Enhancements",
-"description": "Google Search Console Internals Uncovered",
-"potentialAction": {"@type": "SearchAction",
-"target": {"@type": "EntryPoint",
-"name": "Uncover GSC",
-"urlTemplate": "https://gsc-enhancements.site/?url={search_term_string}"},
-"query-input": "required name=search_term_string"}
-}</script>
+  <meta name="description" content="Google Search Console Internals Uncovered" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta property="og:title" content="Google Search Console Uncovered" />
+  <meta property="og:description" content="Google Search Console Internals Uncovered" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gsc-enhancements.site/" />
+  <meta property="og:image" content="https://gsc-enhancements.site/favicon.ico" />
+  <link rel="icon" href="https://gsc-enhancements.site/favicon.ico" sizes="any" />
+  <meta name="theme-color" content="#fafafa" />
 </head>
 <body>
-  <form>
-  <label for="url">Enter an URL or Domain (sc-domain:):</label>
-  <input type="text" role="textbox" id="url" name="url">
-  <button type="submit">Generate Search Console Links</button>
-</form>
-3D Models Report
+  <form id="gsc-uncover">
+    <label for="url">Enter an URL or Domain (sc-domain:)</label>
+    <input type="text" role="textbox" id="url" name="url" inputmode="url" minlength="3" maxlength="1024"
+      autofocus="autofocus" required="required" autocomplete="url" form="gsc-uncover"
+      placeholder="http(s):// or sc-domain:" value="https://" />
+    <button type="button" onclick="submitForm()" form="gsc-uncover">
+      Generate Search Console Links
+    </button>
+  </form>
+  <h2>3D Models Report</h2>
+  <p>
+    The 3D Models Report in Google Search Console provides insights into how
+    Google indexes and displays 3D content from your site. As an SEO expert,
+    you can leverage this data to optimize 3D models for better visibility in
+    search results. Ensuring accurate resource IDs in the link allows you to
+    precisely monitor and enhance the performance of 3D content on your
+    website.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/3d-models?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/3d-models?resource_id=</a>
+    <br /><a href="https://search.google.com/search-console/3d-models/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/3d-models/drilldown?resource_id=</a>
+  </p>
+  <h2><abbr title="Accelerated Mobile Pages">AMP</abbr> (Accelerated Mobile Pages) Report</h2>
+  <p>
+    The <abbr title="Accelerated Mobile Pages">AMP</abbr> Report is essential for SEO professionals aiming to enhance
+    mobile
+    user experience. It offers data on how your <abbr title="Accelerated Mobile Pages">AMP</abbr> pages are indexed and
+    presented in Google Search. You can monitor the performance of your <abbr
+      title="Accelerated Mobile Pages">AMP</abbr> content, ensuring
+    fast loading times and improved rankings.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/amp?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/amp?resource_id=</a><br />
+    <a href="https://search.google.com/search-console/amp/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/amp/drilldown?resource_id=</a>
+  </p>
+  <h2><abbr title="Accelerated Mobile Pages">AMP</abbr> Articles Report</h2>
+  <p>
+    The <abbr title="Accelerated Mobile Pages">AMP</abbr> Articles Report focuses on Google's treatment of your
+    AMP-based
+    articles. As an SEO expert, understanding the nuances of this report is
+    crucial for optimizing article-rich pages for mobile users. The link ensures you have a granular view of
+    how Google handles your AMP articles, aiding in SEO improvements.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/amp-articles?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/amp-articles?resource_id=</a>
+  </p>
+  <h2>Auto User Review Report</h2>
+  <p>
+    The Auto User Review Report is essential for SEO experts managing websites
+    with user-generated content. You can assess how Google handles auto-generated user reviews. This
+    insight is valuable for optimizing review-rich pages, improving search
+    visibility, and building trust with users.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/auto-user-review?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/auto-user-review?resource_id=</a>
+  </p>
+  <h2>Breadcrumbs Report</h2>
+  <p>
+    Breadcrumbs are vital for enhancing site navigation and user experience.
+    The Breadcrumbs Report in <abbr title="Google Search Console">GSC</abbr> helps SEO professionals ensure that Google
+    correctly recognizes and displays breadcrumb trails from their websites.
+    You can monitor the performance of breadcrumbs, ensuring their proper visibility in search results.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/r/breadcrumbs?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/r/breadcrumbs?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/r/breadcrumbs/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/r/breadcrumbs/drilldown?resource_id=</a>
+  </p>
+  <h2>Carousels Report</h2>
+  <p>
+    SEO professionals seeking to optimize content displayed in carousels on
+    Google Search should pay attention to the Carousels Report. The link allows you to analyze carousel
+    performance. This knowledge empowers you to enhance content presentation
+    and engagement in carousels, contributing to better search rankings.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/carousels?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/carousels?resource_id=</a>
+  </p>
+  <h2>COPPA: Tag for Child-Directed Treatment</h2>
+  <p>
+    You can tag a site or service that you would like treated as
+    child-directed, in whole or in part, for purposes of the Children's Online
+    Privacy Protection Action (<abbr title="Children's Online Privacy Protection Action">COPPA</abbr>).<br />
+    You can tag an entire domain or portions of a domain (sub-domain or
+    sub-directory) for treatment as child-directed, and the lower level pages
+    will also be covered by the tag. Note: it may take some time for this
+    designation to take effect in applicable Google services. Google may limit
+    the number of domains or sub-domains you may include.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/coppa?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/coppa?resource_id=</a>
+  </p>
+  <h2>Core Web Vitals Report</h2>
+  <p>
+    The Core Web Vitals Report is a must-have for SEO professionals focused on
+    enhancing the user experience. It concentrates on essential metrics that
+    impact page loading and interactivity. You can track how your website performs concerning core
+    web vital metrics, such as Largest Contentful Paint (<abbr title="Largest Contentful Paint">LCP</abbr>), First Input
+    Delay (<abbr title="First Input Delay">FID</abbr>), and
+    Cumulative Layout Shift (<abbr title="Cumulative Layout Shift">CLS</abbr>), and make improvements accordingly.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/core-web-vitals?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/core-web-vitals?resource_id=</a><br />
+    <a href="https://search.google.com/search-console/core-web-vitals/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/core-web-vitals/drilldown?resource_id=</a><br />
+    <a href="https://search.google.com/search-console/core-web-vitals/summary?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/core-web-vitals/summary?resource_id=</a>
+  </p>
+  <h2>Courses Report</h2>
+  <p>
+    The Courses Report in Google Search Console is crucial for SEO experts in
+    the eLearning industry. It provides insights into how Google indexes and
+    displays course-related content from your website. The link helps you monitor the performance of your online
+    courses in search results, facilitating SEO improvements.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/courses?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/courses?resource_id=</a>
+  </p>
+  <h2>Critic Reviews Report</h2>
+  <p>
+    SEO professionals managing websites with critical reviews can benefit from
+    the Critic Reviews Report. You can assess how Google handles critic reviews from your site.
+    This knowledge is invaluable for optimizing review-rich pages, enhancing
+    search visibility, and building trust with users.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/critic-reviews?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/critic-reviews?resource_id=</a>
+  </p>
+  <h2>Datasets Report</h2>
+  <p>
+    The Datasets Report in Google Search Console is essential for SEO experts
+    dealing with data-rich content. It provides insights into how Google
+    indexes and displays datasets from your site. The link enables you to monitor the performance of your datasets in
+    search results, aiding SEO enhancements.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/datasets?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/datasets?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/datasets/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/datasets/drilldown?resource_id=</a>
+  </p>
+  <h2>Employer Ratings Report</h2>
+  <p>
+    For SEO professionals in the realm of employer ratings and reviews, the
+    Employer Ratings Report is indispensable. You can assess how Google treats employer ratings
+    from your website. This knowledge is pivotal for optimizing rating-rich
+    pages, improving search visibility, and establishing credibility.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/employer-ratings?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/employer-ratings?resource_id=</a>
+  </p>
+  <h2>Entity Lookup Report</h2>
+  <p>
+    The Entity Lookup Report is a valuable resource for businesses dealing
+    with structured data and entities. You can monitor how Google recognizes and displays
+    entities related to your content. This report is instrumental in ensuring
+    the accurate representation of your entities in search results, which is
+    crucial for visibility and relevance.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/entity-lookup?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/entity-lookup?resource_id=</a><br />
+    <a href="https://search.google.com/search-console/entity-lookup/result?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/entity-lookup/result?resource_id=</a><br />
+    <a href="https://search.google.com/search-console/entity-lookup/history?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/entity-lookup/history?resource_id=</a>
+  </p>
+  <h2>Estimated Salaries Report</h2>
+  <p>
+    The Estimated Salaries Report is a vital tool for SEO experts dealing with
+    job-related content. You can monitor how Google indexes and presents estimated salary
+    information from your site. This insight is essential for optimizing
+    job-related pages, enhancing search visibility, and providing users with
+    accurate salary data.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/estimated-salaries?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/estimated-salaries?resource_id=</a>
+  </p>
+  <h2>Events Report</h2>
+  <p>
+    SEO professionals focusing on event-related content should pay attention
+    to the Events Report. It provides valuable insights into how Google
+    indexes and displays event information from your website. The link allows you to monitor the performance
+    of your event listings, aiding SEO optimization efforts.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/events?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/events?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/events/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/events/drilldown?resource_id=</a>
+  </p>
+  <h2>Fact Check Report</h2>
+  <p>
+    Fact-checking plays a crucial role in maintaining online credibility. The
+    Fact Check Report in Google Search Console is essential for SEO experts
+    aiming to ensure the accuracy of information on their websites. You can monitor how
+    Google handles fact-checking data, contributing to trustworthy search
+    results.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/fact-check?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/fact-check?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/fact-check/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/fact-check/drilldown?resource_id=</a>
+  </p>
+  <h2><abbr title="Frequently Asked Questions">FAQ</abbr> (Frequently Asked Questions) Report</h2>
+  <p>
+    FAQs are essential for enhancing user experience and addressing common queries. The <abbr
+      title="Frequently Asked Questions">FAQ</abbr> Report in <abbr title="Google Search Console">GSC</abbr> helps SEO
+    professionals ensure that Google
+    accurately recognizes and displays <abbr title="Frequently Asked Questions">FAQ</abbr> Schema markup on their
+    websites.
+    Obsolete now.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/r/faq?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/r/faq?resource_id=</a><br><a
+      href="https://search.google.com/search-console/r/faq/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/r/faq/drilldown?resource_id=</a>
+  </p>
+  <h2>Feed Report</h2>
+  <p>
+    The Feed Report is essential for websites that provide feeds, such as news
+    or content syndication. You can assess how well your feed content is performing in Google Search. This
+    report offers insights into indexing, issues, and overall visibility, helping you optimize your feed content for a
+    broader audience.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/feed?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/feed?resource_id=</a><br />
+    <a href="https://search.google.com/search-console/feed/items?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/feed/items?resource_id=</a><br />
+    <a href="https://search.google.com/search-console/feed/items/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/feed/items/drilldown?resource_id=</a><br />
+    <a href="https://search.google.com/search-console/feed/history?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/feed/history?resource_id=</a>
+  </p>
+  <h2>Financial Wellness Report</h2>
+  <p>
+    SEO experts in the finance industry should take advantage of the Financial
+    Wellness Report. It offers insights into how Google indexes and presents
+    financial wellness information from your site. You can monitor the performance of your financial
+    wellness content in search results, aiding SEO enhancements.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/financial-wellness?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/financial-wellness?resource_id=</a>
+  </p>
+  <h2>Guided Recipes Report</h2>
+  <p>
+    Guided recipes are crucial for cooking enthusiasts, and the Guided Recipes
+    Report is invaluable for SEO professionals managing recipe-rich websites.
+    The link enables you to monitor how Google indexes and displays guided recipes from your site. This knowledge
+    empowers you to enhance recipe presentation and user engagement in search results.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/r/guided-recipes?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/r/guided-recipes?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/r/guided-recipes/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/r/guided-recipes/drilldown?resource_id=</a>
+  </p>
+  <h2>How-To Report</h2>
+  <p>
+    How-To guides are popular content types, and the How-To Report in Google
+    Search Console is essential for SEO experts. You can assess how Google handles how-to content
+    from your website. This insight is vital for optimizing how-to-rich pages,
+    improving search visibility, and providing users with valuable
+    instructional content.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/r/how-to?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/r/how-to?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/r/how-to/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/r/how-to/drilldown?resource_id=</a>
+  </p>
+  <h2>HTTPS (Secure Websites) Report</h2>
+  <p>
+    SEO professionals prioritize website security, and the HTTPS Report is a
+    key tool in ensuring a secure online presence. You can monitor how Google handles
+    HTTPS-related data from your site. This knowledge contributes to
+    maintaining a secure and trustworthy website, positively impacting search
+    rankings.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/https?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/https?resource_id=</a><br />
+    <a href="https://search.google.com/search-console/https/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/https/drilldown?resource_id=</a>
+  </p>
+  <h2>Images Metadata Report</h2>
+  <p>
+    For SEO experts managing websites with image content, the Images Licenses
+    Report is crucial. It provides insights into how Google indexes and
+    displays image licensing information from your site. The link enables you
+    to monitor the performance of your image licensing data in search results,
+    aiding SEO improvements.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/r/image-licenses?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/r/image-licenses?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/r/image-licenses/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/r/image-licenses/drilldown?resource_id=</a>
+  </p>
+  <h2>Indexing Report</h2>
+  <p>
+    In Indexing Report you can find all indexed and not indexed pages from your site and
+    check site's indexing progress. Display of Impressions in search results graph is
+    optional.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/index?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/index?resource_id=</a><br />
+    <a href="https://search.google.com/search-console/index/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/index/drilldown?resource_id=</a>
+  </p>
+  <h2>Job Trainings Report</h2>
+  <p>
+    SEO professionals in the job training sector should utilize the Job
+    Trainings Report. It offers valuable insights into how Google indexes and
+    presents job training-related content from your site. You can monitor the
+    performance of your job training listings in search results, facilitating
+    SEO enhancements.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/job-trainings?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/job-trainings?resource_id=</a>
+  </p>
+  <h2>Job Postings Report</h2>
+  <p>
+    The Job Postings Report is essential for SEO experts in the job listing industry.
+    You can assess how Google treats job listings from your website. This
+    knowledge is pivotal for optimizing job-rich pages, improving search
+    visibility, and helping job seekers find relevant opportunities.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/jobs?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/jobs?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/jobs/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/jobs/drilldown?resource_id=</a>
+  </p>
+  <h2>Learning Video Report</h2>
+  <p>
+    Learning videos are valuable educational resources, and the Learning Video
+    Report is essential for SEO professionals managing such content. Link
+    allows you to monitor how Google indexes and displays learning videos from
+    your site. This knowledge empowers you to enhance video visibility and
+    educational experiences in search results.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/learning-video?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/learning-video?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/learning-video/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/learning-video/drilldown?resource_id=</a>
+  </p>
+  <h2>Lenslets Report</h2>
+  <p>
+    SEO experts dealing with lenslet-related content should pay attention to
+    the Lenslets Report. It provides insights into how Google indexes and
+    presents lenslet data from your site. You can monitor the performance of
+    your lenslet content in search results, aiding SEO optimization efforts.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/lenslets?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/lenslets?resource_id=</a>
+  </p>
+  <h2>Links Report</h2>
+  <p>
+    The Links Report is a fundamental tool for analyzing backlinks to your
+    website. You can gain insights into which pages link to your site and
+    assess the quality and quantity of backlinks. This information is crucial
+    for enhancing your site's authority and ranking in search results.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/links?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/links?resource_id=</a>
+  </p>
+  <h2>Lists Report</h2>
+  <p>
+    Lists are a common content format, and the Lists Report in Google Search
+    Console is crucial for SEO professionals. Report allows you to monitor how
+    Google indexes and displays list-based content from your website. This
+    knowledge empowers you to optimize list-rich pages for improved search
+    visibility.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/lists?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/lists?resource_id=</a>
+  </p>
+  <h2>Live Coverage Articles Report</h2>
+  <p>
+    Live coverage articles are pertinent for news publishers, and the Live
+    Coverage Articles Report is indispensable for SEO experts in this field.
+    You can assess how Google handles live coverage articles from your site.
+    This insight is vital for optimizing live coverage content, enhancing
+    search visibility, and providing timely news updates.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/live-coverage-articles?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/live-coverage-articles?resource_id=</a>
+  </p>
+  <h2>Local Business Report</h2>
+  <p>
+    Local businesses rely on local search visibility, making the Local
+    Business Report essential for SEO professionals in this domain. The link
+    allows you to monitor how Google indexes and displays local business
+    information from your website. This knowledge empowers you to enhance
+    local SEO strategies and improve online visibility for local
+    establishments.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/local-business?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/local-business?resource_id=</a>
+  </p>
+  <h2>Logos Report</h2>
+  <p>
+    Logos play a vital role in brand recognition, and the Logos Report is
+    crucial for SEO experts managing websites with logo-related content. You
+    can assess how Google indexes and displays logos from your site. This
+    insight helps in optimizing logo-rich pages for better brand visibility in
+    search results.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/logos?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/logos?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/logos/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/logos/drilldown?resource_id=</a>
+  </p>
+  <h2>Manual Actions Report</h2>
+  <p>
+    The Manual Actions Report is critical for websites that have received
+    manual penalties from Google. You can identify the reasons behind these
+    actions and take steps to rectify issues. This report is essential for
+    restoring your site's search visibility and ensuring compliance with
+    search engine guidelines.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/manual-actions?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/manual-actions?resource_id=</a>
+  </p>
+  <h2>Math Solvers Report</h2>
+  <p>
+    SEO professionals dealing with math solver content should utilize the Math
+    Solvers Report. It offers insights into how Google indexes and presents
+    math-solving tools from your site. This link enables you to monitor the
+    performance of your math solver content in search results, aiding SEO
+    improvements.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/math-solvers?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/math-solvers?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/math-solvers/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/math-solvers/drilldown?resource_id=</a>
+  </p>
+  <h2>Medical Conditions Report</h2>
+  <p>
+    The Medical Conditions Report is essential for SEO experts in the
+    healthcare industry. You can assess how Google treats medical
+    condition-related content from your website. This knowledge is pivotal for
+    optimizing medical content, enhancing search visibility, and providing
+    reliable healthcare information.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/medical-conditions?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/medical-conditions?resource_id=</a>
+  </p>
+  <h2>Merchant Listings Report</h2>
+  <p>
+    SEO professionals managing e-commerce websites should pay attention to the
+    Merchant Listings Report. It provides valuable insights into how Google
+    indexes and displays merchant listings from your site. The link allows you
+    to monitor the performance of your product listings in search results,
+    aiding e-commerce SEO efforts.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/r/merchant-listings?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/r/merchant-listings?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/r/merchant-listings/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/r/merchant-listings/drilldown?resource_id=</a>
+  </p>
+  <h2>Mobile Usability Report</h2>
+  <p>
+    The Mobile Usability Report is essential for ensuring your site is
+    mobile-friendly. You can identify and resolve mobile usability issues that
+    may hinder your site's performance on mobile devices. This report aids in
+    delivering a seamless and responsive mobile user experience, which is
+    increasingly important for search rankings.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/mobile-usability?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/mobile-usability?resource_id=</a><br />
+    <a href="https://search.google.com/search-console/mobile-usability/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/mobile-usability/drilldown?resource_id=</a>
+  </p>
+  <h2>Movies Report</h2>
+  <p>
+    For SEO experts in the entertainment industry, the Movies Report is
+    indispensable. You can assess how Google handles movie-related content
+    from your website. This insight is vital for optimizing movie-rich pages,
+    improving search visibility, and providing users with accurate movie
+    information.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/movies?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/movies?resource_id=</a>
+  </p>
+  <h2>Opt out from certain Google properties</h2>
+  <p>
+    The opt-out applies on a domain name basis. For instance, a website owner
+    may designate example.com to subject all content on that domain name to
+    the opt out. If you own additional domains (like example.org or
+    example2.com), including domains that may serve content to an opted out
+    domain, you must opt them out separately for the opt-out to apply to the
+    content on each of those separate domains. A website owner may not
+    designate only individual sub-domains (such as sub.example.com) or
+    individual directories within a domain (such as example.com/sub) for the
+    opt-out.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/opt-out?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/opt-out?resource_id=</a>
+  </p>
+  <h2>Page Experience Report</h2>
+  <p>
+    The Page Experience Report is a vital resource for ensuring your site
+    provides a top-notch user experience. You can assess various metrics
+    related to page experience, including Core Web Vitals,
+    mobile-friendliness, and more. This report guides you in creating a
+    user-friendly website that resonates with both users and search engines.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/page-experience?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/page-experience?resource_id=</a>
+  </p>
+  <h2>Paywalled Content Report</h2>
+  <p>
+    Paywalled content is valuable, and the Paywalled Content Report is
+    essential for SEO professionals managing such content. The link enables
+    you to monitor how Google indexes and displays paywalled content from your
+    site. This knowledge empowers you to optimize access to premium content
+    and enhance search visibility.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/paywalled-content?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/paywalled-content?resource_id=</a>
+  </p>
+  <h2>Person Report</h2>
+  <p>
+    The Person Report in Google Search Console is crucial for SEO experts
+    focusing on personal branding or public figures. You can assess how Google
+    treats information about individuals from your website. This insight is
+    pivotal for optimizing personal branding content, enhancing search
+    visibility, and managing online reputations.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/person?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/person?resource_id=</a>
+  </p>
+  <h2>Performance in Discover Report</h2>
+  <p>
+    The Performance in Discover Report is crucial for websites aiming to
+    enhance their performance in Google Discover. You can track how your
+    content is featured and interacted with in Google Discover. This report
+    aids in optimizing content for a broader audience and maximizing your
+    reach through this platform.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/performance/discover?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/performance/discover?resource_id=</a>
+  </p>
+  <h2>Performance in Google News Report</h2>
+  <p>
+    The Performance in Google News Report is a valuable resource for news
+    publishers. You can assess how your content performs in Google News,
+    including indexing, errors, and visibility. This report is indispensable
+    for optimizing news content and ensuring its visibility to a broader
+    readership.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/performance/google-news?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/performance/google-news?resource_id=</a>
+  </p>
+  <h2>Performance in Search Analytics Report</h2>
+  <p>
+    The Performance in Search Analytics Report is essential for SEO
+    professionals looking to dive deep into their site's search performance.
+    You can access data related to search queries, clicks, and impressions.
+    This report is invaluable for optimizing your content strategy and
+    tailoring it to what your audience is searching for.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/performance/search-analytics?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/performance/search-analytics?resource_id=</a>
+  </p>
 
-Description: The 3D Models Report in Google Search Console provides insights into how Google indexes and displays 3D content from your site. As an SEO expert, you can leverage this data to optimize 3D models for better visibility in search results. Ensuring accurate resource IDs in the link allows you to precisely monitor and enhance the performance of 3D content on your website.
-AMP (Accelerated Mobile Pages) Report
+  <h2>Practice Problems Report</h2>
+  <p>
+    SEO professionals managing educational platforms can benefit from the
+    Practice Problems Report. It offers insights into how Google indexes and
+    displays practice problems from your site. The link allows you to monitor
+    the performance of your practice problem content in search results, aiding
+    educational SEO efforts.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/practice-problems?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/practice-problems?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/practice-problems/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/practice-problems/drilldown?resource_id=</a>
+  </p>
+  <h2>Products Report</h2>
+  <p>
+    E-commerce SEO experts should utilize the Product Report. It provides
+    valuable insights into how Google indexes and displays product-related
+    content from your site. You can monitor the performance of your product
+    listings in search results, aiding e-commerce SEO efforts.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/product?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/product?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/product/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/product/drilldown?resource_id=</a>
+  </p>
+  <h2><abbr title="Question and Answer">Q&A</abbr> (Question and Answer) Report</h2>
+  <p>
+    <abbr title="Question and Answer">Q&A</abbr> content is crucial for addressing user queries, and the Q and A Report
+    in <abbr title="Google Search Console">GSC</abbr> is essential for SEO professionals managing such content. The link
+    allows you to monitor how Google indexes and displays Q&A content from
+    your website. This knowledge empowers you to enhance Q&A-rich pages for improved search visibility. Obsolete.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/q-and-a?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/q-and-a?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/q-and-a/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/q-and-a/drilldown?resource_id=</a>
+  </p>
+  <h2>Recipes Report</h2>
+  <p>
+    Recipes are popular online, and the Recipes Report is essential for SEO
+    experts in the culinary field. You can assess how Google handles
+    recipe-related content from your website. This insight is vital for
+    optimizing recipe-rich pages, improving search visibility, and providing
+    users with valuable culinary instructions.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/recipes?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/recipes?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/recipes/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/recipes/drilldown?resource_id=</a>
+  </p>
+  <h2>Removals Report</h2>
+  <p>
+    The Removals Report is a valuable tool for managing removal requests. You
+    can monitor and manage temporary removals of content from Google Search.
+    This report is essential for handling situations where specific content
+    should not be indexed or displayed temporarily.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/removals?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/removals?resource_id=</a>
+  </p>
 
-Description: The AMP Report is essential for SEO professionals aiming to enhance mobile user experience. It offers data on how your AMP pages are indexed and presented in Google Search. By meticulously configuring resource IDs in the link, you can monitor the performance of your AMP content, ensuring fast loading times and improved rankings.
-AMP Articles Report
-
-Description: The AMP Articles Report focuses on Google's treatment of your AMP-based articles. As an SEO expert, understanding the nuances of this report is crucial for optimizing article-rich pages for mobile users. Accurate resource ID utilization in the link ensures you have a granular view of how Google handles your AMP articles, aiding in SEO improvements.
-Breadcrumbs Report
-
-Description: Breadcrumbs are vital for enhancing site navigation and user experience. The Breadcrumbs Report in GSC helps SEO professionals ensure that Google correctly recognizes and displays breadcrumb trails from their websites. By incorporating the appropriate resource ID in the link, you can monitor the performance of breadcrumbs, ensuring their proper visibility in search results.
-Auto User Review Report
-
-Description: The Auto User Review Report is essential for SEO experts managing websites with user-generated content. By utilizing the correct resource ID in the link, you can assess how Google handles auto-generated user reviews. This insight is valuable for optimizing review-rich pages, improving search visibility, and building trust with users.
-Carousels Report
-
-Description: SEO professionals seeking to optimize content displayed in carousels on Google Search should pay attention to the Carousels Report. The accurate resource ID integration in the link allows you to analyze carousel performance. This knowledge empowers you to enhance content presentation and engagement in carousels, contributing to better search rankings.
-Courses Report
-
-Description: The Courses Report in Google Search Console is crucial for SEO experts in the eLearning industry. It provides insights into how Google indexes and displays course-related content from your website. Accurately configuring resource IDs in the link helps you monitor the performance of your online courses in search results, facilitating SEO improvements.
-Critic Reviews Report
-
-Description: SEO professionals managing websites with critical reviews can benefit from the Critic Reviews Report. By correctly setting the resource ID in the link, you can assess how Google handles critic reviews from your site. This knowledge is invaluable for optimizing review-rich pages, enhancing search visibility, and building trust with users.
-Datasets Report
-
-Description: The Datasets Report in Google Search Console is essential for SEO experts dealing with data-rich content. It provides insights into how Google indexes and displays datasets from your site. Accurate resource ID usage in the link enables you to monitor the performance of your datasets in search results, aiding SEO enhancements.
-Employer Ratings Report
-
-Description: For SEO professionals in the realm of employer ratings and reviews, the Employer Ratings Report is indispensable. By incorporating the appropriate resource ID in the link, you can assess how Google treats employer ratings from your website. This knowledge is pivotal for optimizing rating-rich pages, improving search visibility, and establishing credibility.
-Estimated Salaries Report
-
-Description: The Estimated Salaries Report is a vital tool for SEO experts dealing with job-related content. By meticulously using the resource ID in the link, you can monitor how Google indexes and presents estimated salary information from your site. This insight is essential for optimizing job-related pages, enhancing search visibility, and providing users with accurate salary data.
-Events Report
-
-Description: SEO professionals focusing on event-related content should pay attention to the Events Report. It provides valuable insights into how Google indexes and displays event information from your website. Accurate resource ID utilization in the link allows you to monitor the performance of your event listings, aiding SEO optimization efforts.
-Fact Check Report
-
-Description: Fact-checking plays a crucial role in maintaining online credibility. The Fact Check Report in Google Search Console is essential for SEO experts aiming to ensure the accuracy of information on their websites. By correctly configuring the resource ID in the link, you can monitor how Google handles fact-checking data, contributing to trustworthy search results.
-FAQ (Frequently Asked Questions) Report
-
-Description: FAQs are essential for enhancing user experience and addressing common queries. The FAQ Report in GSC helps SEO professionals ensure that Google accurately recognizes and displays FAQ schema markup on their websites. Accurate resource ID integration in the link allows you to monitor the performance of FAQ-rich pages, improving their visibility in search results.
-Financial Wellness Report
-
-Description: SEO experts in the finance industry should take advantage of the Financial Wellness Report. It offers insights into how Google indexes and presents financial wellness information from your site. By using the correct resource ID in the link, you can monitor the performance of your financial wellness content in search results, aiding SEO enhancements.
-Guided Recipes Report
-
-Description: Guided recipes are crucial for cooking enthusiasts, and the Guided Recipes Report is invaluable for SEO professionals managing recipe-rich websites. Accurate resource ID usage in the link enables you to monitor how Google indexes and displays guided recipes from your site. This knowledge empowers you to enhance recipe presentation and user engagement in search results.
-How-To Report
-
-Description: How-To guides are popular content types, and the How-To Report in Google Search Console is essential for SEO experts. By correctly setting the resource ID in the link, you can assess how Google handles how-to content from your website. This insight is vital for optimizing how-to-rich pages, improving search visibility, and providing users with valuable instructional content.
-HTTPS (Secure Websites) Report
-
-Description: SEO professionals prioritize website security, and the HTTPS Report is a key tool in ensuring a secure online presence. By accurately configuring the resource ID in the link, you can monitor how Google handles HTTPS-related data from your site. This knowledge contributes to maintaining a secure and trustworthy website, positively impacting search rankings.
-Image Licenses Report
-
-Description: For SEO experts managing websites with image content, the Image Licenses Report is crucial. It provides insights into how Google indexes and displays image licensing information from your site. Accurate resource ID usage in the link enables you to monitor the performance of your image licensing data in search results, aiding SEO improvements.
-Job Trainings Report
-
-Description: SEO professionals in the job training sector should utilize the Job Trainings Report. It offers valuable insights into how Google indexes and presents job training-related content from your site. By incorporating the appropriate resource ID in the link, you can monitor the performance of your job training listings in search results, facilitating SEO enhancements.
-Jobs Report
-
-Description: The Jobs Report is essential for SEO experts in the job listing industry. By correctly configuring the resource ID in the link, you can assess how Google treats job listings from your website. This knowledge is pivotal for optimizing job-rich pages, improving search visibility, and helping job seekers find relevant opportunities.
-Learning Video Report
-
-Description: Learning videos are valuable educational resources, and the Learning Video Report is essential for SEO professionals managing such content. Accurate resource ID integration in the link allows you to monitor how Google indexes and displays learning videos from your site. This knowledge empowers you to enhance video visibility and educational experiences in search results.
-Lenslets Report
-
-Description: SEO experts dealing with lenslet-related content should pay attention to the Lenslets Report. It provides insights into how Google indexes and presents lenslet data from your site. By meticulously using the resource ID in the link, you can monitor the performance of your lenslet content in search results, aiding SEO optimization efforts.
-Lists Report
-
-Description: Lists are a common content format, and the Lists Report in Google Search Console is crucial for SEO professionals. Accurate resource ID utilization in the link allows you to monitor how Google indexes and displays list-based content from your website. This knowledge empowers you to optimize list-rich pages for improved search visibility.
-Live Coverage Articles Report
-
-Description: Live coverage articles are pertinent for news publishers, and the Live Coverage Articles Report is indispensable for SEO experts in this field. By correctly setting the resource ID in the link, you can assess how Google handles live coverage articles from your site. This insight is vital for optimizing live coverage content, enhancing search visibility, and providing timely news updates.
-Local Business Report
-
-Description: Local businesses rely on local search visibility, making the Local Business Report essential for SEO professionals in this domain. Accurate resource ID configuration in the link allows you to monitor how Google indexes and displays local business information from your website. This knowledge empowers you to enhance local SEO strategies and improve online visibility for local establishments.
-Logos Report
-
-Description: Logos play a vital role in brand recognition, and the Logos Report is crucial for SEO experts managing websites with logo-related content. By incorporating the appropriate resource ID in the link, you can assess how Google indexes and displays logos from your site. This insight helps in optimizing logo-rich pages for better brand visibility in search results.
-Math Solvers Report
-
-Description: SEO professionals dealing with math solver content should utilize the Math Solvers Report. It offers insights into how Google indexes and presents math-solving tools from your site. Accurate resource ID usage in the link enables you to monitor the performance of your math solver content in search results, aiding SEO improvements.
-Medical Conditions Report
-
-Description: The Medical Conditions Report is essential for SEO experts in the healthcare industry. By correctly configuring the resource ID in the link, you can assess how Google treats medical condition-related content from your website. This knowledge is pivotal for optimizing medical content, enhancing search visibility, and providing reliable healthcare information.
-Merchant Listings Report
-
-Description: SEO professionals managing e-commerce websites should pay attention to the Merchant Listings Report. It provides valuable insights into how Google indexes and displays merchant listings from your site. Accurate resource ID integration in the link allows you to monitor the performance of your product listings in search results, aiding e-commerce SEO efforts.
-Movies Report
-
-Description: For SEO experts in the entertainment industry, the Movies Report is indispensable. By meticulously using the resource ID in the link, you can assess how Google handles movie-related content from your website. This insight is vital for optimizing movie-rich pages, improving search visibility, and providing users with accurate movie information.
-Paywalled Content Report
-
-Description: Paywalled content is valuable, and the Paywalled Content Report is essential for SEO professionals managing such content. Accurate resource ID usage in the link enables you to monitor how Google indexes and displays paywalled content from your site. This knowledge empowers you to optimize access to premium content and enhance search visibility.
-Person Report
-
-Description: The Person Report in Google Search Console is crucial for SEO experts focusing on personal branding or public figures. By correctly configuring the resource ID in the link, you can assess how Google treats information about individuals from your website. This insight is pivotal for optimizing personal branding content, enhancing search visibility, and managing online reputations.
-Practice Problems Report
-
-Description: SEO professionals managing educational platforms can benefit from the Practice Problems Report. It offers insights into how Google indexes and displays practice problems from your site. Accurate resource ID integration in the link allows you to monitor the performance of your practice problem content in search results, aiding educational SEO efforts.
-Product Report
-
-Description: E-commerce SEO experts should utilize the Product Report. It provides valuable insights into how Google indexes and displays product-related content from your site. By incorporating the appropriate resource ID in the link, you can monitor the performance of your product listings in search results, aiding e-commerce SEO efforts.
-Q&A (Question and Answer) Report
-
-Description: Q&A content is crucial for addressing user queries, and the Q&A Report in GSC is essential for SEO professionals managing such content. Accurate resource ID utilization in the link allows you to monitor how Google indexes and displays Q&A content from your website. This knowledge empowers you to enhance Q&A-rich pages for improved search visibility.
-Recipes Report
-
-Description: Recipes are popular online, and the Recipes Report is essential for SEO experts in the culinary field. By correctly setting the resource ID in the link, you can assess how Google handles recipe-related content from your website. This insight is vital for optimizing recipe-rich pages, improving search visibility, and providing users with valuable culinary instructions.
-Review Snippet Report
-
-Description: Reviews are essential for building trust, and the Review Snippet Report is crucial for SEO professionals managing websites with review content. By incorporating the appropriate resource ID in the link, you can assess how Google handles review snippets from your site. This knowledge empowers you to optimize review-rich pages, enhance search visibility, and establish credibility with users.
-Sitelinks Searchbox Report
-
-Description: Sitelinks Searchbox is a valuable feature for enhancing site navigation, and the Sitelinks Searchbox Report is essential for SEO professionals. Accurate resource ID configuration in the link allows you to monitor how Google recognizes and displays the searchbox on your site. This knowledge empowers you to improve site navigation and user experience, contributing to better search rankings.
-Shopping Tab Listings Report
-
-Description: SEO experts in the e-commerce sector should utilize the Shopping Tab Listings Report. It offers insights into how Google indexes and presents product listings in the shopping tab from your site. By meticulously using the resource ID in the link, you can monitor the performance of your product listings in the shopping tab, aiding e-commerce SEO efforts.
-Software Apps Report
-
-Description: SEO professionals managing software-related content should pay attention to the Software Apps Report. It provides valuable insights into how Google indexes and displays software apps from your site. Accurate resource ID integration in the link allows you to monitor the performance of your software app listings in search results, aiding SEO efforts in the software industry.
-Special Announcements Report
-
-Description: Special announcements are crucial for timely communication, and the Special Announcements Report is essential for SEO experts. By correctly configuring the resource ID in the link, you can assess how Google treats special announcements from your website. This insight is pivotal for optimizing special announcement content, enhancing search visibility, and delivering important updates to users.
-Sports Videos Report
-
-Description: Sports videos are popular, and the Sports Videos Report is indispensable for SEO professionals in the sports and entertainment industry. Accurate resource ID usage in the link enables you to monitor how Google indexes and displays sports-related videos from your site. This knowledge empowers you to enhance video visibility, engage sports enthusiasts, and improve search rankings.
-Subscribed Content Report
-
-Description: Subscribed content is valuable for membership-based websites, and the Subscribed Content Report is essential for SEO professionals managing such content. By incorporating the appropriate resource ID in the link, you can assess how Google indexes and displays subscribed content from your site. This knowledge empowers you to optimize access to premium content, enhance search visibility, and provide value to subscribers.
-Unknown Type Report
-
-Description: The Unknown Type Report in Google Search Console is crucial for SEO professionals dealing with unconventional content types. By correctly configuring the resource ID in the link, you can assess how Google treats content of unknown types from your website. This insight is pivotal for optimizing unconventional content, enhancing search visibility, and ensuring that diverse content formats are appropriately indexed.
-Videos Report
-
-Description: Videos are a dynamic content format, and the Videos Report is essential for SEO experts managing video-rich websites. Accurate resource ID integration in the link allows you to monitor how Google indexes and displays videos from your site. This knowledge empowers you to enhance video visibility, engage users through visual content, and improve search rankings.
-
-
-
-<div id="links"></div>
+  <h2>Review Snippets Report</h2>
+  <p>
+    Reviews are essential for building trust, and the Review Snippets Report is
+    crucial for SEO professionals managing websites with review content. You
+    can assess how Google handles review snippets from your site. This
+    knowledge empowers you to optimize review-rich pages, enhance search
+    visibility, and establish credibility with users.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/review-snippet?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/review-snippet?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/review-snippet/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/review-snippet/drilldown?resource_id=</a>
+  </p>
+  <h2>Security Issues Report</h2>
+  <p>
+    The Security Issues Report is critical for ensuring the safety and
+    trustworthiness of your website. You can access information about
+    potential security issues that may impact your site's search ranking. This
+    report is indispensable for maintaining a secure online presence and user
+    trust.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/security-issues?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/security-issues?resource_id=</a>
+  </p>
+  <h2>Settings > Extended News Previews</h2>
+  <p>
+    The Extended News Previews program (<abbr title="Extended News Previews">ENP</abbr>) is Google's initiative
+    responding to the requirements of Article 15 of the 2019 European Directive on Copyright in the Digital Single
+    Market. Under this law, some uses of press publication content by online platforms require authorization by the
+    publisher of the content. The use of links and very short extracts of press publications does not require
+    authorization.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/settings/enp?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/settings/enp?resource_id=</a>
+  </p>
+  <h2>Sitemaps Report</h2>
+  <p>
+    The Sitemaps Report is a fundamental tool for managing your website's
+    sitemap files. You can track the status and performance of your sitemap
+    submissions. This report aids in ensuring that search engines can
+    efficiently crawl and index your site.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/sitemaps?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/sitemaps?resource_id=</a>
+  </p>
+  <h2>Sitelinks Searchbox Report</h2>
+  <p>
+    Sitelinks Searchbox is a valuable feature for enhancing site navigation,
+    and the Sitelinks Searchbox Report is essential for SEO professionals. The
+    link allows you to monitor how Google recognizes and displays the
+    searchbox on your site. This knowledge empowers you to improve site
+    navigation and user experience, contributing to better search rankings.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/r/sitelinks-searchbox?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/r/sitelinks-searchbox?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/r/sitelinks-searchbox/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/r/sitelinks-searchbox/drilldown?resource_id=</a>
+  </p>
+  <h2>Shopping Tab Listings Report</h2>
+  <p>
+    SEO experts in the e-commerce sector should utilize the Shopping Tab
+    Listings Report. It offers insights into how Google indexes and presents
+    product listings in the shopping tab from your site. You can monitor the
+    performance of your product listings in the shopping tab, aiding
+    e-commerce SEO efforts.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/shopping-tab-listings?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/shopping-tab-listings?resource_id=</a>
+  </p>
+  <h2>Software Apps Report</h2>
+  <p>
+    SEO professionals managing software-related content should pay attention
+    to the Software Apps Report. It provides valuable insights into how Google
+    indexes and displays software apps from your site. The link allows you to
+    monitor the performance of your software app listings in search results,
+    aiding SEO efforts in the software industry.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/software-apps?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/software-apps?resource_id=</a>
+  </p>
+  <h2>Submit a COVID-19 announcement for your site</h2>
+  <p>
+    Authority websites, such as government agencies, official health
+    authority, and schools, can use this tool to submit an important COVID-19
+    announcement on their site, particularly if they are unable to use
+    structured data. This includes the closure of facilities, rescheduling of
+    events, and new availability of medical facilities (for example, testing
+    centers). Google Search uses this information to better understand the
+    content on your web page and show the important announcement to relevant
+    people.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/special-announcement?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/special-announcement?resource_id=</a>
+  </p>
+  <h2>Special Announcements Report</h2>
+  <p>
+    Special announcements are crucial for timely communication, and the
+    Special Announcements Report is essential for SEO experts. You can assess
+    how Google treats special announcements from your website. This insight is
+    pivotal for optimizing special announcement content, enhancing search
+    visibility, and delivering important updates to users.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/r/special-announcements?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/r/special-announcements?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/r/special-announcements/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/r/special-announcements/drilldown?resource_id=</a>
+  </p>
+  <h2>Sports Videos Report</h2>
+  <p>
+    Sports videos are popular, and the Sports Videos Report is indispensable
+    for SEO professionals in the sports and entertainment industry. The link
+    enables you to monitor how Google indexes and displays sports-related
+    videos from your site. This knowledge empowers you to enhance video
+    visibility, engage sports enthusiasts, and improve search rankings.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/sports-videos?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/sports-videos?resource_id=</a>
+  </p>
+  <h2>Subscribed Content Report</h2>
+  <p>
+    Subscribed content is valuable for membership-based websites, and the
+    Subscribed Content Report is essential for SEO professionals managing such
+    content. You can assess how Google indexes and displays subscribed content
+    from your site. This knowledge empowers you to optimize access to premium
+    content, enhance search visibility, and provide value to subscribers.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/r/subscribed-content?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/r/subscribed-content?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/r/subscribed-content/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/r/subscribed-content/drilldown?resource_id=</a>
+  </p>
+  <h2>Unparsable structured data Report</h2>
+  <p>
+    The Unparsable structured data Report in Google Search Console is crucial for SEO
+    professionals dealing with unconventional content types. You can assess
+    how Google treats content of unknown types from your website. This insight
+    is pivotal for optimizing unparsable structured data, enhancing search
+    visibility, and ensuring that diverse content formats are appropriately
+    indexed.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/r/unknown-type?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/r/unknown-type?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/r/unknown-type/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/r/unknown-type/drilldown?resource_id=</a>
+  </p>
+  <h2>Videos Report</h2>
+  <p>
+    Videos are a dynamic content format, and the Videos Report is essential
+    for SEO experts managing video-rich websites. This link allows you to
+    monitor how Google indexes and displays videos from your site. This
+    knowledge empowers you to enhance video visibility, engage users through
+    visual content, and improve search rankings.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/r/videos?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/r/videos?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/r/videos/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/r/videos/drilldown?resource_id=</a>
+  </p>
+  <h2>Video Index Report</h2>
+  <p>
+    The Video Index Report is essential for websites that feature video
+    content. You can assess how your videos are indexed and presented in
+    Google Search. This report is invaluable for optimizing your video
+    content's visibility and performance.
+  </p>
+  <p>
+    <a href="https://search.google.com/search-console/video-index?resource_id=" rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/video-index?resource_id=</a><br />
+    <a href="https://search.google.com/search-console/video-index/drilldown?resource_id="
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/video-index/drilldown?resource_id=</a>
+  </p>
+  <h3>Please support me</h3>
+  <p>
+    <a href="https://patreon.com/deadjdona?utm_campaign=djd&utm_source=gsc-enhancements.site&utm_medium=link&utm_term="
+      class="exclude" rel="external noopener" title="Dead J. Dona's Patreon" target="_blank">Become a Patron
+    </a>
+    |
+    <a href="https://www.buymeacoffee.com/deadjdona?utm_campaign=djd&utm_source=gsc-enhancements.site&utm_medium=link&utm_term="
+      class="exclude" rel="external noopener" title="BaC 4 DJ.D" target="_blank">Buy me a Coffee
+    </a></p>
+  <p>
+    <img width="88" height="31" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" />
+  </p>
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "https://gsc-enhancements.site/",
+        "name": "GSC Enhancements",
+        "alternateName": "GSC Uncovered",
+        "copyrightNotice": "No &copy;",
+        "isAccessibleForFree": true,
+        "description": "Google Search Console Internals Uncovered",
+        "disambiguatingDescription": "Almost entire collection of hidden GSC reports in one place.",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://gsc-enhancements.site/?url={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
 </body></html>
