@@ -4,3 +4,6 @@
 node_modules
 dist
 .cache
+.vscode/settings.json
+gsc-unc.code-workspace
+.prettierrc
