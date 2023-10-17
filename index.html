@@ -5,22 +5,23 @@
  function isValidInput(b){return/^(https?:\/\/.+\..+|sc-domain:.+\..+)$/.test(b)}function submitForm(){var b=document.getElementById("url").value;isValidInput(b)&&Array.from(document.getElementsByTagName("a")).forEach(function(c){var a=c.href;c.classList.contains("exclude")?a=a.substring(0,a.lastIndexOf("=")+1)+b:(a=c.href.split("=")[0]+"="+b,c.textContent=a);c.href=a})};
 </script>
   <title>Google Search Console Uncovered</title>
-  <meta name="description" content="Google Search Console Internals Uncovered" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta property="og:title" content="Google Search Console Reports Uncovered" />
-  <meta property="og:description" content="Google Search Console Internals Uncovered" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://gsc-enhancements.site/" />
-  <meta property="og:image" content="https://gsc-enhancements.site/favicon.ico" />
-  <link rel="icon" href="https://gsc-enhancements.site/favicon.ico" sizes="any" />
-  <meta name="theme-color" content="#fafafa" />
+  <meta name="description" content="Google Search Console Internals Uncovered">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Google Search Console Reports Uncovered">
+  <meta property="og:description" content="Google Search Console Internals Uncovered">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gsc-enhancements.site/">
+  <meta property="og:image" content="https://gsc-enhancements.site/favicon.ico">
+  <link rel="icon" href="https://gsc-enhancements.site/favicon.ico" sizes="any">
+  <meta name="theme-color" content="#fafafa">
 </head>
 <body>
+  <h1>Google Search Console Reports List</h1>
   <form id="gsc-uncover">
     <label for="url">Enter an URL or Domain (sc-domain:)</label>
-    <input type="text" role="textbox" id="url" name="url" inputmode="url" minlength="3" maxlength="1024"
+    <input type="text" id="url" name="url" minlength="3" maxlength="1024"
       autofocus="autofocus" required="required" autocomplete="url" form="gsc-uncover"
-      placeholder="http(s):// or sc-domain:" value="https://" />
+      placeholder="http(s):// or sc-domain:" value="https://">
     <button type="button" onclick="submitForm()" form="gsc-uncover">
       Generate Search Console Links
     </button>
@@ -37,7 +38,7 @@
   <p>
     <a href="https://search.google.com/search-console/3d-models?resource_id=" rel="external noindex nofollow noopener"
       target="_blank">https://search.google.com/search-console/3d-models?resource_id=</a>
-    <br /><a href="https://search.google.com/search-console/3d-models/drilldown?resource_id="
+    <br><a href="https://search.google.com/search-console/3d-models/drilldown?resource_id="
       rel="external noindex nofollow noopener"
       target="_blank">https://search.google.com/search-console/3d-models/drilldown?resource_id=</a>
   </p>
@@ -52,7 +53,7 @@
   </p>
   <p>
     <a href="https://search.google.com/search-console/amp?resource_id=" rel="external noindex nofollow noopener"
-      target="_blank">https://search.google.com/search-console/amp?resource_id=</a><br />
+      target="_blank">https://search.google.com/search-console/amp?resource_id=</a><br>
     <a href="https://search.google.com/search-console/amp/drilldown?resource_id="
       rel="external noindex nofollow noopener"
       target="_blank">https://search.google.com/search-console/amp/drilldown?resource_id=</a>
@@ -112,7 +113,7 @@
   <p>
     You can tag a site or service that you would like treated as
     child-directed, in whole or in part, for purposes of the Children's Online
-    Privacy Protection Action (<abbr title="Children's Online Privacy Protection Action">COPPA</abbr>).<br />
+    Privacy Protection Action (<abbr title="Children's Online Privacy Protection Action">COPPA</abbr>).<br>
     You can tag an entire domain or portions of a domain (sub-domain or
     sub-directory) for treatment as child-directed, and the lower level pages
     will also be covered by the tag. Note: it may take some time for this
@@ -135,10 +136,10 @@
   <p>
     <a href="https://search.google.com/search-console/core-web-vitals?resource_id="
       rel="external noindex nofollow noopener"
-      target="_blank">https://search.google.com/search-console/core-web-vitals?resource_id=</a><br />
+      target="_blank">https://search.google.com/search-console/core-web-vitals?resource_id=</a><br>
     <a href="https://search.google.com/search-console/core-web-vitals/drilldown?resource_id="
       rel="external noindex nofollow noopener"
-      target="_blank">https://search.google.com/search-console/core-web-vitals/drilldown?resource_id=</a><br />
+      target="_blank">https://search.google.com/search-console/core-web-vitals/drilldown?resource_id=</a><br>
     <a href="https://search.google.com/search-console/core-web-vitals/summary?resource_id="
       rel="external noindex nofollow noopener"
       target="_blank">https://search.google.com/search-console/core-web-vitals/summary?resource_id=</a>
@@ -203,10 +204,10 @@
   <p>
     <a href="https://search.google.com/search-console/entity-lookup?resource_id="
       rel="external noindex nofollow noopener"
-      target="_blank">https://search.google.com/search-console/entity-lookup?resource_id=</a><br />
+      target="_blank">https://search.google.com/search-console/entity-lookup?resource_id=</a><br>
     <a href="https://search.google.com/search-console/entity-lookup/result?resource_id="
       rel="external noindex nofollow noopener"
-      target="_blank">https://search.google.com/search-console/entity-lookup/result?resource_id=</a><br />
+      target="_blank">https://search.google.com/search-console/entity-lookup/result?resource_id=</a><br>
     <a href="https://search.google.com/search-console/entity-lookup/history?resource_id="
       rel="external noindex nofollow noopener"
       target="_blank">https://search.google.com/search-console/entity-lookup/history?resource_id=</a>
@@ -278,12 +279,12 @@
   </p>
   <p>
     <a href="https://search.google.com/search-console/feed?resource_id=" rel="external noindex nofollow noopener"
-      target="_blank">https://search.google.com/search-console/feed?resource_id=</a><br />
+      target="_blank">https://search.google.com/search-console/feed?resource_id=</a><br>
     <a href="https://search.google.com/search-console/feed/items?resource_id=" rel="external noindex nofollow noopener"
-      target="_blank">https://search.google.com/search-console/feed/items?resource_id=</a><br />
+      target="_blank">https://search.google.com/search-console/feed/items?resource_id=</a><br>
     <a href="https://search.google.com/search-console/feed/items/drilldown?resource_id="
       rel="external noindex nofollow noopener"
-      target="_blank">https://search.google.com/search-console/feed/items/drilldown?resource_id=</a><br />
+      target="_blank">https://search.google.com/search-console/feed/items/drilldown?resource_id=</a><br>
     <a href="https://search.google.com/search-console/feed/history?resource_id="
       rel="external noindex nofollow noopener"
       target="_blank">https://search.google.com/search-console/feed/history?resource_id=</a>
@@ -340,7 +341,7 @@
   </p>
   <p>
     <a href="https://search.google.com/search-console/https?resource_id=" rel="external noindex nofollow noopener"
-      target="_blank">https://search.google.com/search-console/https?resource_id=</a><br />
+      target="_blank">https://search.google.com/search-console/https?resource_id=</a><br>
     <a href="https://search.google.com/search-console/https/drilldown?resource_id="
       rel="external noindex nofollow noopener"
       target="_blank">https://search.google.com/search-console/https/drilldown?resource_id=</a>
@@ -369,7 +370,7 @@
   </p>
   <p>
     <a href="https://search.google.com/search-console/index?resource_id=" rel="external noindex nofollow noopener"
-      target="_blank">https://search.google.com/search-console/index?resource_id=</a><br />
+      target="_blank">https://search.google.com/search-console/index?resource_id=</a><br>
     <a href="https://search.google.com/search-console/index/drilldown?resource_id="
       rel="external noindex nofollow noopener"
       target="_blank">https://search.google.com/search-console/index/drilldown?resource_id=</a>
@@ -562,7 +563,7 @@
   <p>
     <a href="https://search.google.com/search-console/mobile-usability?resource_id="
       rel="external noindex nofollow noopener"
-      target="_blank">https://search.google.com/search-console/mobile-usability?resource_id=</a><br />
+      target="_blank">https://search.google.com/search-console/mobile-usability?resource_id=</a><br>
     <a href="https://search.google.com/search-console/mobile-usability/drilldown?resource_id="
       rel="external noindex nofollow noopener"
       target="_blank">https://search.google.com/search-console/mobile-usability/drilldown?resource_id=</a>
@@ -954,7 +955,7 @@
   </p>
   <p>
     <a href="https://search.google.com/search-console/video-index?resource_id=" rel="external noindex nofollow noopener"
-      target="_blank">https://search.google.com/search-console/video-index?resource_id=</a><br />
+      target="_blank">https://search.google.com/search-console/video-index?resource_id=</a><br>
     <a href="https://search.google.com/search-console/video-index/drilldown?resource_id="
       rel="external noindex nofollow noopener"
       target="_blank">https://search.google.com/search-console/video-index/drilldown?resource_id=</a>
