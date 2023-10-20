@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
-<meta charset="utf-8">
-<script>
- function isValidInput(b){return/^(https?:\/\/.+\..+|sc-domain:.+\..+)$/.test(b)}function submitForm(){var b=document.getElementById("url").value;isValidInput(b)&&Array.from(document.getElementsByTagName("a")).forEach(function(c){var a=c.href;c.classList.contains("exclude")?a=a.substring(0,a.lastIndexOf("=")+1)+b:(a=c.href.split("=")[0]+"="+b,c.textContent=a);c.href=a})};
-</script>
+  <meta charset="utf-8">
+  <script>
+    function isValidInput(b) { return /^(https?:\/\/.+\..+|sc-domain:.+\..+)$/.test(b) } function submitForm() { var b = document.getElementById("url").value; isValidInput(b) && Array.from(document.getElementsByTagName("a")).forEach(function (c) { var a = c.href; c.classList.contains("exclude") ? a = a.substring(0, a.lastIndexOf("=") + 1) + b : (a = c.href.split("=")[0] + "=" + b, c.textContent = a); c.href = a }) };
+  </script>
   <title>Google Search Console Reports 📔 Uncovered</title>
   <meta name="description" content="Google Search Console Reports 📔 Internals Uncovered">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,11 +25,10 @@
   <h1>Google Search Console Reports 📔 List</h1>
   <form id="gsc-uncover">
     <label for="url">Enter an URL or Domain (sc-domain:)</label>
-    <input type="text" id="url" name="url" minlength="3" maxlength="1024"
-      autofocus="autofocus" required="required" autocomplete="url" form="gsc-uncover"
-      placeholder="http(s):// or sc-domain:" value="https://">
+    <input type="text" id="url" name="url" minlength="3" maxlength="1024" autofocus="autofocus" required="required"
+      autocomplete="url" form="gsc-uncover" placeholder="http(s):// or sc-domain:" value="https://">
     <button type="button" onclick="submitForm()" form="gsc-uncover">
-      Generate Reports 📔 Links
+      Generate Reports 📔
     </button>
   </form>
   <h2>⚂ 3D Models Report</h2>
@@ -39,8 +38,8 @@
     you can leverage this data to optimize ⚂ 3D models for better visibility in search results.
   </p>
   <p>
-    <a href="https://search.google.com/search-console/3d-models?resource_id=" rel="external noindex nofollow noopener" title="⚂"
-      target="_blank">https://search.google.com/search-console/3d-models?resource_id=</a>
+    <a href="https://search.google.com/search-console/3d-models?resource_id=" rel="external noindex nofollow noopener"
+      title="⚂" target="_blank">https://search.google.com/search-console/3d-models?resource_id=</a>
     <br><a href="https://search.google.com/search-console/3d-models/drilldown?resource_id="
       rel="external noindex nofollow noopener" title="⚂"
       target="_blank">https://search.google.com/search-console/3d-models/drilldown?resource_id=</a>
@@ -48,12 +47,14 @@
   <h2>⚡ <abbr title="⚡ Accelerated Mobile Pages">AMP</abbr> (Accelerated Mobile Pages) Report</h2>
   <p>
     The ⚡ <abbr title="Accelerated Mobile Pages">AMP</abbr> Report is essential for SEO professionals aiming to enhance
-    mobile user experience. It offers data on how your ⚡ <abbr title="Accelerated Mobile Pages">AMP</abbr> pages are indexed and
-    presented in Google Search. You can monitor the performance of your ⚡ <abbr title="Accelerated Mobile Pages">AMP</abbr> content, ensuring fast loading times and improved rankings.
+    mobile user experience. It offers data on how your ⚡ <abbr title="Accelerated Mobile Pages">AMP</abbr> pages are
+    indexed and
+    presented in Google Search. You can monitor the performance of your ⚡ <abbr
+      title="Accelerated Mobile Pages">AMP</abbr> content, ensuring fast loading times and improved rankings.
   </p>
   <p>
-    <a href="https://search.google.com/search-console/amp?resource_id=" rel="external noindex nofollow noopener" title="⚡"
-      target="_blank">https://search.google.com/search-console/amp?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/amp?resource_id=" rel="external noindex nofollow noopener"
+      title="⚡" target="_blank">https://search.google.com/search-console/amp?resource_id=</a><br>
     <a href="https://search.google.com/search-console/amp/drilldown?resource_id="
       rel="external noindex nofollow noopener" title="⚡"
       target="_blank">https://search.google.com/search-console/amp/drilldown?resource_id=</a>
@@ -61,7 +62,8 @@
   <h2>⚡ <abbr title="⚡ Accelerated Mobile Pages">AMP</abbr> Articles Report</h2>
   <p>
     The ⚡ <abbr title="Accelerated Mobile Pages">AMP</abbr> Articles Report focuses on Google's treatment of your
-    ⚡ <abbr title="Accelerated Mobile Pages">AMP</abbr>-based articles. As an SEO expert, understanding the nuances of this report is
+    ⚡ <abbr title="Accelerated Mobile Pages">AMP</abbr>-based articles. As an SEO expert, understanding the nuances of
+    this report is
     crucial for optimizing article-rich pages for mobile users. The link ensures you have a granular view of
     how Google handles your ⚡ <abbr title="Accelerated Mobile Pages">AMP</abbr> articles, aiding in SEO improvements.
   </p>
@@ -84,7 +86,8 @@
   <h2>🍞 Breadcrumbs Report</h2>
   <p>
     🍞 Breadcrumbs are vital for enhancing site navigation and user experience.
-    The 🍞 Breadcrumbs Report in <abbr title="Google Search Console">GSC</abbr> helps SEO professionals ensure that Google
+    The 🍞 Breadcrumbs Report in <abbr title="Google Search Console">GSC</abbr> helps SEO professionals ensure that
+    Google
     correctly recognizes and displays 🍞 Breadcrumb trails from their websites.
     You can monitor the performance of your site 🍞 Breadcrumbs, ensuring their proper visibility in search results.
   </p>
@@ -119,8 +122,8 @@
     the number of domains or sub-domains you may include.
   </p>
   <p>
-    <a href="https://search.google.com/search-console/coppa?resource_id=" rel="external noindex nofollow noopener" title="🧒🏻"
-      target="_blank">https://search.google.com/search-console/coppa?resource_id=</a>
+    <a href="https://search.google.com/search-console/coppa?resource_id=" rel="external noindex nofollow noopener"
+      title="🧒🏻" target="_blank">https://search.google.com/search-console/coppa?resource_id=</a>
   </p>
   <h2>Core Web Vitals Report</h2>
   <p>
@@ -128,7 +131,8 @@
     enhancing the user experience. It concentrates on essential metrics that
     impact page loading and interactivity. You can track how your website performs concerning core
     web vital metrics, such as Largest Contentful Paint (<abbr title="Largest Contentful Paint">LCP</abbr>), First Input
-    Delay (<abbr title="First Input Delay">FID</abbr>), and Cumulative Layout Shift (<abbr title="Cumulative Layout Shift">CLS</abbr>), and make improvements accordingly.
+    Delay (<abbr title="First Input Delay">FID</abbr>), and Cumulative Layout Shift (<abbr
+      title="Cumulative Layout Shift">CLS</abbr>), and make improvements accordingly.
   </p>
   <p>
     <a href="https://search.google.com/search-console/core-web-vitals?resource_id="
@@ -168,12 +172,13 @@
   <p>
     The 🗃️ Datasets Report in Google Search Console is essential for SEO experts
     dealing with data-rich content. It provides insights into how Google
-    indexes and displays 🗃️ Datasets from your site. The link enables you to monitor the performance of your 🗃️ Datasets in
+    indexes and displays 🗃️ Datasets from your site. The link enables you to monitor the performance of your 🗃️
+    Datasets in
     search results, aiding SEO enhancements.
   </p>
   <p>
-    <a href="https://search.google.com/search-console/datasets?resource_id=" rel="external noindex nofollow noopener" title="🗃️"
-      target="_blank">https://search.google.com/search-console/datasets?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/datasets?resource_id=" rel="external noindex nofollow noopener"
+      title="🗃️" target="_blank">https://search.google.com/search-console/datasets?resource_id=</a><br>
     <a href="https://search.google.com/search-console/datasets/drilldown?resource_id=" title="🗃️"
       rel="external noindex nofollow noopener"
       target="_blank">https://search.google.com/search-console/datasets/drilldown?resource_id=</a>
@@ -181,7 +186,8 @@
   <h2>💸 Employer Ratings Report</h2>
   <p>
     For SEO professionals in the realm of employer ratings and reviews, the 💸 Employer Ratings Report is indispensable.
-    You can assess how Google treats employer ratings from your website. This knowledge is pivotal for optimizing rating-rich
+    You can assess how Google treats employer ratings from your website. This knowledge is pivotal for optimizing
+    rating-rich
     pages, improving search visibility, and establishing credibility.
   </p>
   <p>
@@ -210,7 +216,8 @@
   <h2>🤑 Estimated Salaries Report</h2>
   <p>
     The 🤑 Estimated Salaries Report is a vital tool for SEO experts dealing with
-    job-related content. You can monitor how Google indexes and presents estimated salary information from your site. This insight is essential for optimizing
+    job-related content. You can monitor how Google indexes and presents estimated salary information from your site.
+    This insight is essential for optimizing
     job-related pages, enhancing search visibility, and providing users with accurate salary data.
   </p>
   <p>
@@ -226,34 +233,38 @@
     of your Events listings, aiding SEO optimization efforts.
   </p>
   <p>
-    <a href="https://search.google.com/search-console/events?resource_id=" rel="external noindex nofollow noopener" title="🎟️"
-      target="_blank">https://search.google.com/search-console/events?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/events?resource_id=" rel="external noindex nofollow noopener"
+      title="🎟️" target="_blank">https://search.google.com/search-console/events?resource_id=</a><br>
     <a href="https://search.google.com/search-console/events/drilldown?resource_id=" title="🎟️"
       rel="external noindex nofollow noopener"
       target="_blank">https://search.google.com/search-console/events/drilldown?resource_id=</a>
   </p>
   <h2>✔️ Fact Check Report</h2>
   <p>
-    Fact-checking plays a crucial role in maintaining online credibility. The ✔️ Fact Check Report in Google Search Console is essential for SEO experts
-    aiming to ensure the accuracy of information on their websites. You can monitor how  Google handles fact-checking data, contributing to trustworthy search results.
+    Fact-checking plays a crucial role in maintaining online credibility. The ✔️ Fact Check Report in Google Search
+    Console is essential for SEO experts
+    aiming to ensure the accuracy of information on their websites. You can monitor how Google handles fact-checking
+    data, contributing to trustworthy search results.
   </p>
   <p>
-    <a href="https://search.google.com/search-console/fact-check?resource_id=" rel="external noindex nofollow noopener" title="✔️"
-      target="_blank">https://search.google.com/search-console/fact-check?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/fact-check?resource_id=" rel="external noindex nofollow noopener"
+      title="✔️" target="_blank">https://search.google.com/search-console/fact-check?resource_id=</a><br>
     <a href="https://search.google.com/search-console/fact-check/drilldown?resource_id=" title="✔️"
       rel="external noindex nofollow noopener"
       target="_blank">https://search.google.com/search-console/fact-check/drilldown?resource_id=</a>
   </p>
   <h2>❓ <abbr title="Frequently Asked Questions">FAQ</abbr> (Frequently Asked Questions) Report</h2>
   <p>
-    FAQs are essential for enhancing user experience and addressing common queries. The ❓ <abbr title="❓ Frequently Asked Questions">FAQ</abbr> Report in <abbr title="Google Search Console">GSC</abbr> helps SEO
-    professionals ensure that Google accurately recognizes and displays ❓ <abbr title="❓ Frequently Asked Questions">FAQ</abbr> Schema markup on their
+    FAQs are essential for enhancing user experience and addressing common queries. The ❓ <abbr
+      title="❓ Frequently Asked Questions">FAQ</abbr> Report in <abbr title="Google Search Console">GSC</abbr> helps SEO
+    professionals ensure that Google accurately recognizes and displays ❓ <abbr
+      title="❓ Frequently Asked Questions">FAQ</abbr> Schema markup on their
     websites.
     Obsolete now.
   </p>
   <p>
-    <a href="https://search.google.com/search-console/r/faq?resource_id=" rel="external noindex nofollow noopener" title="❓"
-      target="_blank">https://search.google.com/search-console/r/faq?resource_id=</a><br><a
+    <a href="https://search.google.com/search-console/r/faq?resource_id=" rel="external noindex nofollow noopener"
+      title="❓" target="_blank">https://search.google.com/search-console/r/faq?resource_id=</a><br><a
       href="https://search.google.com/search-console/r/faq/drilldown?resource_id="
       rel="external noindex nofollow noopener" title="❓"
       target="_blank">https://search.google.com/search-console/r/faq/drilldown?resource_id=</a>
@@ -266,10 +277,10 @@
     broader audience. Selected availability now.
   </p>
   <p>
-    <a href="https://search.google.com/search-console/feed?resource_id=" rel="external noindex nofollow noopener" title="📰"
-      target="_blank">https://search.google.com/search-console/feed?resource_id=</a><br>
-    <a href="https://search.google.com/search-console/feed/items?resource_id=" rel="external noindex nofollow noopener" title="📰"
-      target="_blank">https://search.google.com/search-console/feed/items?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/feed?resource_id=" rel="external noindex nofollow noopener"
+      title="📰" target="_blank">https://search.google.com/search-console/feed?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/feed/items?resource_id=" rel="external noindex nofollow noopener"
+      title="📰" target="_blank">https://search.google.com/search-console/feed/items?resource_id=</a><br>
     <a href="https://search.google.com/search-console/feed/items/drilldown?resource_id="
       rel="external noindex nofollow noopener" title="📰"
       target="_blank">https://search.google.com/search-console/feed/items/drilldown?resource_id=</a><br>
@@ -291,7 +302,8 @@
   </p>
   <h2>🧑‍🍳 Guided Recipes Report</h2>
   <p>
-    Guided recipes are crucial for cooking enthusiasts, and the 🧑‍🍳 Guided Recipes Report is invaluable for SEO professionals managing recipe-rich websites.
+    Guided recipes are crucial for cooking enthusiasts, and the 🧑‍🍳 Guided Recipes Report is invaluable for SEO
+    professionals managing recipe-rich websites.
     The link enables you to monitor how Google indexes and displays guided recipes from your site.
     This knowledge empowers you to enhance recipe presentation and user engagement in search results.
   </p>
@@ -325,8 +337,8 @@
     maintaining a secure and trustworthy website, positively impacting search rankings.
   </p>
   <p>
-    <a href="https://search.google.com/search-console/https?resource_id=" rel="external noindex nofollow noopener" title="🔒"
-      target="_blank">https://search.google.com/search-console/https?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/https?resource_id=" rel="external noindex nofollow noopener"
+      title="🔒" target="_blank">https://search.google.com/search-console/https?resource_id=</a><br>
     <a href="https://search.google.com/search-console/https/drilldown?resource_id=" title="🔒"
       rel="external noindex nofollow noopener"
       target="_blank">https://search.google.com/search-console/https/drilldown?resource_id=</a>
@@ -353,8 +365,8 @@
     check site's indexing progress. Display of Impressions in search results graph is optional.
   </p>
   <p>
-    <a href="https://search.google.com/search-console/index?resource_id=" rel="external noindex nofollow noopener" title="📇"
-      target="_blank">https://search.google.com/search-console/index?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/index?resource_id=" rel="external noindex nofollow noopener"
+      title="📇" target="_blank">https://search.google.com/search-console/index?resource_id=</a><br>
     <a href="https://search.google.com/search-console/index/drilldown?resource_id=" title="📇"
       rel="external noindex nofollow noopener"
       target="_blank">https://search.google.com/search-console/index/drilldown?resource_id=</a>
@@ -380,8 +392,8 @@
     visibility, and helping job seekers find relevant opportunities.
   </p>
   <p>
-    <a href="https://search.google.com/search-console/jobs?resource_id=" rel="external noindex nofollow noopener" title="🧑🏻‍💼"
-      target="_blank">https://search.google.com/search-console/jobs?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/jobs?resource_id=" rel="external noindex nofollow noopener"
+      title="🧑🏻‍💼" target="_blank">https://search.google.com/search-console/jobs?resource_id=</a><br>
     <a href="https://search.google.com/search-console/jobs/drilldown?resource_id="
       rel="external noindex nofollow noopener" title="🧑🏻‍💼"
       target="_blank">https://search.google.com/search-console/jobs/drilldown?resource_id=</a>
@@ -410,8 +422,8 @@
     your lenslet content in search results, aiding SEO optimization efforts.
   </p>
   <p>
-    <a href="https://search.google.com/search-console/lenslets?resource_id=" rel="external noindex nofollow noopener" title="🔍"
-      target="_blank">https://search.google.com/search-console/lenslets?resource_id=</a>
+    <a href="https://search.google.com/search-console/lenslets?resource_id=" rel="external noindex nofollow noopener"
+      title="🔍" target="_blank">https://search.google.com/search-console/lenslets?resource_id=</a>
   </p>
   <h2>🔗 Links Report</h2>
   <p>
@@ -421,8 +433,8 @@
     for enhancing your site's authority and ranking in search results.
   </p>
   <p>
-    <a href="https://search.google.com/search-console/links?resource_id=" rel="external noindex nofollow noopener" title="🔗"
-      target="_blank">https://search.google.com/search-console/links?resource_id=</a>
+    <a href="https://search.google.com/search-console/links?resource_id=" rel="external noindex nofollow noopener"
+      title="🔗" target="_blank">https://search.google.com/search-console/links?resource_id=</a>
   </p>
   <h2>Lists Report -</h2>
   <p>
@@ -467,7 +479,8 @@
   <p>
     Logos play a vital role in brand recognition, and the Logos Report is
     crucial for SEO experts managing websites with logo-related content.
-    You can assess how Google indexes and displays logos from your site. This insight helps in optimizing pages for better brand visibility in search results.
+    You can assess how Google indexes and displays logos from your site. This insight helps in optimizing pages for
+    better brand visibility in search results.
      Apple 🪵o.
   </p>
   <p>
@@ -543,9 +556,11 @@
   </p>
   <p>
     <a href="https://search.google.com/search-console/mobile-usability?resource_id=" title="📱"
-      rel="external noindex nofollow noopener" target="_blank">https://search.google.com/search-console/mobile-usability?resource_id=</a><br>
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/mobile-usability?resource_id=</a><br>
     <a href="https://search.google.com/search-console/mobile-usability/drilldown?resource_id=" title="📱"
-      rel="external noindex nofollow noopener" target="_blank">https://search.google.com/search-console/mobile-usability/drilldown?resource_id=</a>
+      rel="external noindex nofollow noopener"
+      target="_blank">https://search.google.com/search-console/mobile-usability/drilldown?resource_id=</a>
   </p>
   <h2>🎥 Movies Report</h2>
   <p>
@@ -555,8 +570,8 @@
     improving search visibility, and providing users with accurate movie information.
   </p>
   <p>
-    <a href="https://search.google.com/search-console/movies?resource_id=" rel="external noindex nofollow noopener" title="🎥"
-      target="_blank">https://search.google.com/search-console/movies?resource_id=</a>
+    <a href="https://search.google.com/search-console/movies?resource_id=" rel="external noindex nofollow noopener"
+      title="🎥" target="_blank">https://search.google.com/search-console/movies?resource_id=</a>
   </p>
   <h2>Opt out from certain Google properties</h2>
   <p>
@@ -684,14 +699,16 @@
   </p>
   <h2>❔ <abbr title="❔ Question and Answer 🙋🏻">Q&A</abbr> 🙋🏻 (Question and Answer) Report</h2>
   <p>
-    ❔ <abbr title="❔ Questions and Answers 🙋🏻">Q&A</abbr> 🙋🏻 content is crucial for addressing user queries, and the "Q and A" Report
+    ❔ <abbr title="❔ Questions and Answers 🙋🏻">Q&A</abbr> 🙋🏻 content is crucial for addressing user queries, and the
+    "Q and A" Report
     in <abbr title="Google Search Console">GSC</abbr> is essential for SEO professionals managing such content. The link
     allows you to monitor how Google indexes and displays ❔🔣🙋🏻 content from
-    your website. This knowledge empowers you to enhance <abbr title="❔ Question and Answer 🙋🏻">Q&A</abbr>-rich pages for improved search visibility. Obsolete now.
+    your website. This knowledge empowers you to enhance <abbr title="❔ Question and Answer 🙋🏻">Q&A</abbr>-rich pages
+    for improved search visibility. Obsolete now.
   </p>
   <p>
-    <a href="https://search.google.com/search-console/q-and-a?resource_id=" rel="external noindex nofollow noopener" title="❔ and 🙋🏻"
-      target="_blank">https://search.google.com/search-console/q-and-a?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/q-and-a?resource_id=" rel="external noindex nofollow noopener"
+      title="❔ and 🙋🏻" target="_blank">https://search.google.com/search-console/q-and-a?resource_id=</a><br>
     <a href="https://search.google.com/search-console/q-and-a/drilldown?resource_id="
       rel="external noindex nofollow noopener" title="❔ and 🙋🏻"
       target="_blank">https://search.google.com/search-console/q-and-a/drilldown?resource_id=</a>
@@ -705,8 +722,8 @@
     users with valuable culinary instructions.
   </p>
   <p>
-    <a href="https://search.google.com/search-console/recipes?resource_id=" rel="external noindex nofollow noopener" title="🍳"
-      target="_blank">https://search.google.com/search-console/recipes?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/recipes?resource_id=" rel="external noindex nofollow noopener"
+      title="🍳" target="_blank">https://search.google.com/search-console/recipes?resource_id=</a><br>
     <a href="https://search.google.com/search-console/recipes/drilldown?resource_id="
       rel="external noindex nofollow noopener" title="🍳"
       target="_blank">https://search.google.com/search-console/recipes/drilldown?resource_id=</a>
@@ -756,7 +773,8 @@
     The Extended News Previews program (<abbr title="Extended News Previews">ENP</abbr>) is Google's initiative
     responding to the requirements of Article 15 of the 2019 European Directive on Copyright in the Digital Single
     Market. Under this law, some uses of press publication content by online platforms require authorization by the
-    publisher of the content. The use of links and very short extracts of press publications does not require authorization.
+    publisher of the content. The use of links and very short extracts of press publications does not require
+    authorization.
   </p>
   <p>
     <a href="https://search.google.com/search-console/settings/enp?resource_id="
@@ -771,8 +789,8 @@
     efficiently crawl and index your site.
   </p>
   <p>
-    <a href="https://search.google.com/search-console/sitemaps?resource_id=" rel="external noindex nofollow noopener" title="🗺️"
-      target="_blank">https://search.google.com/search-console/sitemaps?resource_id=</a>
+    <a href="https://search.google.com/search-console/sitemaps?resource_id=" rel="external noindex nofollow noopener"
+      title="🗺️" target="_blank">https://search.google.com/search-console/sitemaps?resource_id=</a>
   </p>
   <h2>Sitelinks 🔎 Searchbox Report</h2>
   <p>
@@ -894,12 +912,15 @@
   </p>
   <h2>🚗 Vehicle Listings Report</h2>
   <p>
-  The 🚗 Vehicle Listings report in Google Search Console is a new valuable tool for website owners and webmasters in the automotive industry.
-  This report provides insights and data related to how your vehicle listings are performing in Google Search.
-  It focuses on the visibility and ranking of your vehicle listings, helping you optimize your online presence for potential buyers and enthusiasts.
+    The 🚗 Vehicle Listings report in Google Search Console is a new valuable tool for website owners and webmasters in
+    the automotive industry.
+    This report provides insights and data related to how your vehicle listings are performing in Google Search.
+    It focuses on the visibility and ranking of your vehicle listings, helping you optimize your online presence for
+    potential buyers and enthusiasts.
   </p>
   <p>
-    <a href="https://search.google.com/search-console/r/vehicle-listings?resource_id=" rel="external noindex nofollow noopener" title="🚗"
+    <a href="https://search.google.com/search-console/r/vehicle-listings?resource_id="
+      rel="external noindex nofollow noopener" title="🚗"
       target="_blank">https://search.google.com/search-console/r/vehicle-listings?resource_id=</a><br>
     <a href="https://search.google.com/search-console/r/vehicle-listings/drilldown?resource_id="
       rel="external noindex nofollow noopener" title="🚗"
@@ -914,8 +935,8 @@
     visual content, and improve search rankings.
   </p>
   <p>
-    <a href="https://search.google.com/search-console/r/videos?resource_id=" rel="external noindex nofollow noopener" title="📹"
-      target="_blank">https://search.google.com/search-console/r/videos?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/r/videos?resource_id=" rel="external noindex nofollow noopener"
+      title="📹" target="_blank">https://search.google.com/search-console/r/videos?resource_id=</a><br>
     <a href="https://search.google.com/search-console/r/videos/drilldown?resource_id="
       rel="external noindex nofollow noopener" title="📹"
       target="_blank">https://search.google.com/search-console/r/videos/drilldown?resource_id=</a>
@@ -927,8 +948,8 @@
     Google Search. This report is invaluable for optimizing your video content's visibility and performance.
   </p>
   <p>
-    <a href="https://search.google.com/search-console/video-index?resource_id=" rel="external noindex nofollow noopener" title="📼"
-      target="_blank">https://search.google.com/search-console/video-index?resource_id=</a><br>
+    <a href="https://search.google.com/search-console/video-index?resource_id=" rel="external noindex nofollow noopener"
+      title="📼" target="_blank">https://search.google.com/search-console/video-index?resource_id=</a><br>
     <a href="https://search.google.com/search-console/video-index/drilldown?resource_id="
       rel="external noindex nofollow noopener" title="📼"
       target="_blank">https://search.google.com/search-console/video-index/drilldown?resource_id=</a>
@@ -937,19 +958,19 @@
   <p>
     <a href="https://www.patreon.com/deadjdona?utm_campaign=djd&utm_source=gsc-enhancements.site&utm_medium=link&utm_term="
       class="exclude" rel="noopener" title="Dead J. Dona's Patreon" target="_blank">Become a Patron</a>
-   |
+    |
     <a href="https://www.buymeacoffee.com/deadjdona?utm_campaign=djd&utm_source=gsc-enhancements.site&utm_medium=link&utm_term="
-      class="exclude" rel="noopener" title="BaC 4 DJ.D" target="_blank">Buy me a Coffee</a></p>
+      class="exclude" rel="noopener" title="BaC 4 DJ.D" target="_blank">Buy me a Coffee</a>
+  </p>
   <p>
-  <img width="88" height="31" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS! <!-- &html;5 -->">
+    <img width="88" height="31" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS! <!-- &html;5 -->">
   </p>
   <script type="application/ld+json">{
         "@context": "https://schema.org",
         "@type": "WebSite",
         "url": "https://gsc-enhancements.site/",
         "name": "GSC 📔 Enhancements",
-        "alternateName": "GSC Uncovered",
-        "alternateName": "📔",
+        "alternateName": ["GSC Uncovered", "📔"],
         "copyrightNotice": "No &copy;",
         "isAccessibleForFree": true,
         "logo" : "https://gsc-enhancements.site/bmc_qr.png",
@@ -964,4 +985,6 @@
           "query-input": "required name=search_term_string"
         }
       }</script>
-</body></html>
+</body>
+
+</html>
