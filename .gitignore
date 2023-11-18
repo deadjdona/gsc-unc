@@ -1,9 +1,10 @@
 # Include your project-specific ignores in this file
 # Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
 # Useful .gitignore templates: https://github.com/github/gitignore
-node_modules
-dist
+.gitignore
 .cache
 .vscode/settings.json
 gsc-unc.code-workspace
 .prettierrc
+dist
+node_modules
