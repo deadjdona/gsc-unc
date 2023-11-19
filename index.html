@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <script>
-function isValidInput(b){return/^(https?:\/\/.+\..+|sc-domain:.+\..+)$/.test(b)}function submitForm(){var b=document.getElementById("url").value;isValidInput(b)&&Array.from(document.querySelectorAll("a")).forEach(function(a){var c=a.href;a.classList.contains("exclude")?a.href=c.substring(0,c.lastIndexOf("=")+1)+b:(a.href=c.split("=")[0]+"="+b,a.textContent=a.href)})};
+function isValidInput(b){return/^(https?:\/\/.+\..+|sc-domain:.+\..+)$/.test(b)}function submitForm(){var b=document.getElementById("url").value;isValidInput(b)&&Array.from(document.querySelectorAll("a")).forEach(function(a){var c=a.href;a.classList.contains("exclude")?"🍳"==a.id?a.href="🍳":a.href=c.substring(0,c.lastIndexOf("=")+1)+b:(a.href=c.split("=")[0]+"="+b,a.textContent=a.href)})};
 </script>
   <title>Google Search Console Reports 📔 Uncovered</title>
   <meta name="description" content="Google Search Console Reports 📔 Internals Uncovered">
@@ -720,7 +720,7 @@ function isValidInput(b){return/^(https?:\/\/.+\..+|sc-domain:.+\..+)$/.test(b)}
   </p>
   <h2>🍳 Recipes Report</h2>
   <p>
-    Recipes are popular online, and the <a class="exclude" href="🍳" title="🍳" rel="follow index" style="text-decoration: none;">🍳</a> Recipes Report
+    Recipes are popular online, and the <a class="exclude 🍳" id="🍳" href="🍳" title="🍳" rel="follow index" style="text-decoration: none;">🍳</a> Recipes Report
     is essential for SEO experts in the culinary field. You can assess how Google handles
     recipe-related content from your website. This insight is vital for
     optimizing recipe-rich pages, improving search visibility, and providing users with valuable culinary instructions.
