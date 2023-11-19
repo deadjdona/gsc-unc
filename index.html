@@ -23,9 +23,9 @@ function isValidInput(b){return/^(https?:\/\/.+\..+|sc-domain:.+\..+)$/.test(b)}
 </head>
 <body>
   <h1>Google Search Console Reports 📔 List</h1>
-  <form id="gsc-uncover" name="gsc-uncover">
+  <form id="gsc-uncover" name="gsc-uncover" rel="opener" autocomplete="on" onsubmit="submitForm()" action="javascript:;">
     <label for="url">Enter an URL or Domain (sc-domain:)</label>
-    <input type="url" id="url" name="url" minlength="10" maxlength="1024" autofocus="autofocus" required="required"
+    <input type="url" id="url" minlength="10" maxlength="1024" autofocus="autofocus" required="required"
       autocomplete="url" form="gsc-uncover" placeholder="http(s):// or sc-domain:" value="https://" title="http(s):// or sc-domain:">
     <button type="button" onclick="submitForm()" form="gsc-uncover" title="Generate Reports 📔">Generate Reports 📔</button>
   </form>
